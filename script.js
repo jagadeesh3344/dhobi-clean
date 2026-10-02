@@ -275,19 +275,15 @@ function handle7MClick() {
     setTimeout(() => { statCard.style.transform = ''; }, 150);
   }
 
-  if (click7MCount < 4) {
-    showToast(`🔑 Admin Trigger: Tapped ${click7MCount}/4 times...`);
-  } else {
+  if (click7MCount >= 4) {
     click7MCount = 0;
     // Always clear session token so tapping 4 times MUST ask for admin credentials
     sessionStorage.removeItem('dhobi_admin_auth');
-    showToast('🔒 4 Taps Verified! Opening Credentials Prompt...');
     setTimeout(() => {
       window.location.href = 'admin.html';
-    }, 450);
+    }, 200);
   }
 }
-
 
 window.handle7MClick = handle7MClick;
 
@@ -304,7 +300,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (stat7mCard) {
     stat7mCard.id = 'stat-card-7m';
     stat7mCard.style.cursor = 'pointer';
-    stat7mCard.setAttribute('title', 'Click 4 times to unlock Admin Panel');
+    stat7mCard.removeAttribute('title');
     stat7mCard.addEventListener('click', handle7MClick);
   }
 
