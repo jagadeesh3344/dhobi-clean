@@ -522,7 +522,7 @@ button, input, select {
 
 .booking-card {
   background: #ffffff;
-  border: 2.5px solid var(--primary-dark-navy);
+  border: none;
   border-radius: 28px;
   padding: 0;
   overflow: hidden;
