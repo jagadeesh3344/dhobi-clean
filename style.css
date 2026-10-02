@@ -1529,7 +1529,16 @@ a, button, input, select, textarea, .nav-link, .service-item-card {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Deep Ultra-Frosted Glass Card System */
+/* ==========================================================================
+   Apple iOS-Style Liquid Glassmorphism Master Design System
+   ========================================================================== */
+
+/* Ambient Page Background for Liquid Glass Reflection Bleed */
+body {
+  background: radial-gradient(circle at 10% 20%, #eef7fc 0%, #e0f2fe 35%, #f0f7ff 70%, #f8fbfe 100%) fixed !important;
+}
+
+/* Master Frosted Glass Card Treatment (15%-25% White Opacity + 30px Blur + Inner Specular Highlight) */
 .glass-card,
 .feature-card,
 .stat-card,
@@ -1545,33 +1554,74 @@ a, button, input, select, textarea, .nav-link, .service-item-card {
 .booking-card,
 .modal-box,
 .card-header,
-.services-hero-card,
 .contact-channel-item,
-.channel-icon-circle {
-  background: rgba(255, 255, 255, 0.48) !important;
-  backdrop-filter: blur(40px) saturate(240%) !important;
-  -webkit-backdrop-filter: blur(40px) saturate(240%) !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
-  box-shadow: 0 20px 50px -10px rgba(2, 132, 199, 0.18), 0 6px 20px rgba(11, 26, 45, 0.06), inset 0 1.5px 2px rgba(255, 255, 255, 1) !important;
+.channel-icon-circle,
+.about-stats-section,
+.mv-card,
+.value-card,
+.service-card-item,
+.services-help-card,
+.blog-search-bar input,
+.contact-person-wrapper,
+.about-image-card,
+.story-image-card,
+.services-hero-image-card,
+.blog-hero-image-card {
+  background: rgba(255, 255, 255, 0.22) !important;
+  backdrop-filter: blur(30px) saturate(220%) !important;
+  -webkit-backdrop-filter: blur(30px) saturate(220%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.65) !important;
+  box-shadow: 0 20px 50px -10px rgba(2, 132, 199, 0.15), 0 8px 30px rgba(11, 26, 45, 0.08), inset 0 1.5px 1px rgba(255, 255, 255, 0.8) !important;
   border-radius: 26px;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
+/* Progressive Foreground Glass Elements (Stronger 25-35% Translucency, Brighter Highlights) */
+.input-field-wrapper input,
+.select-wrapper select,
+.stepper-controls,
+.cart-summary-badge,
+.store-pill,
+.filter-tab-btn,
+.nav-link,
+.glass-icon-btn,
+.channel-icon-circle,
+.stat-icon-box,
+.feature-icon-circle,
+.about-stat-icon-wrapper,
+.value-icon-circle,
+.modal-details,
+.modal-success-icon {
+  background: rgba(255, 255, 255, 0.32) !important;
+  backdrop-filter: blur(24px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.65) !important;
+  box-shadow: 0 8px 20px -4px rgba(2, 132, 199, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Interactive Card Hover States */
 .glass-card:hover,
 .feature-card:hover,
 .stat-card:hover,
 .service-item-card:hover,
-.blog-card:hover {
-  background: rgba(255, 255, 255, 0.78) !important;
+.blog-card:hover,
+.value-card:hover,
+.mv-card:hover,
+.service-card-item:hover {
+  background: rgba(255, 255, 255, 0.42) !important;
   transform: translateY(-5px) scale(1.015) !important;
-  box-shadow: 0 26px 60px -10px rgba(2, 132, 199, 0.28), 0 10px 30px rgba(11, 26, 45, 0.1), inset 0 1.5px 2px rgba(255, 255, 255, 1) !important;
-  border-color: rgba(56, 189, 248, 0.8) !important;
+  box-shadow: 0 28px 60px -10px rgba(2, 132, 199, 0.26), 0 12px 36px rgba(11, 26, 45, 0.1), inset 0 1.5px 1px rgba(255, 255, 255, 1) !important;
+  border-color: rgba(255, 255, 255, 0.85) !important;
 }
 
-.glass-card-dark {
-  background: rgba(11, 26, 45, 0.76) !important;
-  backdrop-filter: blur(40px) saturate(240%) !important;
-  -webkit-backdrop-filter: blur(40px) saturate(240%) !important;
+/* Dark Mode Liquid Glass Cards (Admin Panel) */
+.glass-card-dark,
+.admin-kpi-card,
+.panel-card,
+.admin-modal-box {
+  background: rgba(11, 26, 45, 0.45) !important;
+  backdrop-filter: blur(35px) saturate(230%) !important;
+  -webkit-backdrop-filter: blur(35px) saturate(230%) !important;
   border: 1.5px solid rgba(255, 255, 255, 0.22) !important;
-  box-shadow: 0 26px 60px -12px rgba(8, 20, 36, 0.6), inset 0 1.5px 2px rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 28px 65px -12px rgba(8, 20, 36, 0.55), inset 0 1.5px 1.5px rgba(255, 255, 255, 0.2) !important;
 }
