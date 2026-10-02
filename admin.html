@@ -34,6 +34,10 @@
           <span class="status-pulse"></span>
           <span>All 5 City Hubs Online</span>
         </div>
+        <button type="button" class="btn-return-site" id="btn-admin-logout" onclick="handleAdminLogout()" style="background: rgba(239, 68, 68, 0.15); border-color: rgba(239, 68, 68, 0.35); color: #f87171;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px;"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Logout
+        </button>
         <a href="index.html" class="btn-return-site">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           Return to Site
@@ -311,6 +315,48 @@
     </div>
   </div>
 
+  <!-- Admin Authentication Login Modal -->
+  <div id="admin-login-modal" class="admin-modal show" style="backdrop-filter: blur(25px); background: rgba(3, 7, 18, 0.92); z-index: 99999;">
+    <div class="admin-modal-box glass-card-dark" style="max-width: 440px; text-align: center; border: 1.5px solid rgba(56, 189, 248, 0.4); box-shadow: 0 0 50px rgba(2, 132, 199, 0.3);">
+      <div style="margin-bottom: 22px;">
+        <div class="logo-icon-wrapper" style="width: 56px; height: 56px; margin: 0 auto 14px;">
+          <svg class="logo-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="36" height="36" rx="10" fill="#0284c7" />
+            <path d="M12 9H18.5C23.1944 9 27 12.8056 27 17.5C27 22.1944 23.1944 26 18.5 26H12V9Z" fill="#38bdf8" fill-opacity="0.3"/>
+            <path d="M11 9.5C11 8.67157 11.6716 8 12.5 8H18C23.2467 8 27.5 12.2533 27.5 17.5C27.5 22.7467 23.2467 27 18 27H12.5C11.6716 27 11 26.3284 11 25.5V9.5Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="18" cy="17.5" r="4.5" stroke="white" stroke-width="2.2"/>
+          </svg>
+        </div>
+        <h2 style="font-size: 23px; font-weight: 800; color: #ffffff; margin-bottom: 6px;">Executive Admin Portal</h2>
+        <p style="font-size: 13px; color: #cbd5e1;">Please enter executive credentials to access operations management.</p>
+      </div>
+
+      <div style="background: rgba(14, 165, 233, 0.14); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 14px; padding: 12px 16px; font-size: 12.5px; color: #38bdf8; font-weight: 700; margin-bottom: 22px; text-align: left;">
+        🔑 <strong>Default Admin Credentials:</strong><br>
+        • Username: <code style="color: #ffffff; background: rgba(0,0,0,0.4); padding: 2px 7px; border-radius: 4px;">admin</code><br>
+        • Password: <code style="color: #ffffff; background: rgba(0,0,0,0.4); padding: 2px 7px; border-radius: 4px;">admin123</code>
+      </div>
+
+      <form id="admin-login-form" onsubmit="handleAdminLogin(event)">
+        <div id="login-error-msg" style="display: none; background: rgba(239, 68, 68, 0.18); border: 1px solid rgba(239, 68, 68, 0.4); color: #f87171; padding: 10px; border-radius: 10px; font-size: 12.5px; font-weight: 700; margin-bottom: 16px;">
+          ❌ Invalid Username or Password!
+        </div>
+        <div class="admin-form-group" style="text-align: left;">
+          <label style="color: #cbd5e1;">Admin Username</label>
+          <input type="text" id="admin-username" placeholder="Username (e.g. admin)" required value="admin" style="background: rgba(15, 23, 42, 0.85); color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+        </div>
+        <div class="admin-form-group" style="text-align: left;">
+          <label style="color: #cbd5e1;">Admin Password</label>
+          <input type="password" id="admin-password" placeholder="Password (e.g. admin123)" required value="admin123" style="background: rgba(15, 23, 42, 0.85); color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+        </div>
+        <button type="submit" class="btn-admin-action" style="width: 100%; margin-top: 16px; padding: 13px; font-size: 14px; letter-spacing: 0.04em;">
+          🔓 UNLOCK ADMIN DASHBOARD
+        </button>
+      </form>
+    </div>
+  </div>
+
   <script src="admin.js"></script>
 </body>
 </html>
+

@@ -108,6 +108,7 @@ function updateKPICards() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  checkAdminAuth();
   loadDataFromStorage();
   renderServicesTable();
   renderDriversTable();
@@ -120,9 +121,70 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Auto-refresh live feed every 2 seconds
   setInterval(() => {
-    loadDataFromStorage();
+    if (sessionStorage.getItem('dhobi_admin_auth') === 'true') {
+      loadDataFromStorage();
+    }
   }, 2000);
 });
+
+/**
+ * Check Admin Authentication Status
+ */
+function checkAdminAuth() {
+  const isAuth = sessionStorage.getItem('dhobi_admin_auth') === 'true';
+  const loginModal = document.getElementById('admin-login-modal');
+  const mainWrapper = document.querySelector('.admin-main-wrapper');
+  const logoutBtn = document.getElementById('btn-admin-logout');
+
+  if (isAuth) {
+    if (loginModal) loginModal.classList.remove('show');
+    if (mainWrapper) {
+      mainWrapper.style.filter = 'none';
+      mainWrapper.style.pointerEvents = 'auto';
+    }
+    if (logoutBtn) logoutBtn.style.display = 'inline-flex';
+  } else {
+    if (loginModal) loginModal.classList.add('show');
+    if (mainWrapper) {
+      mainWrapper.style.filter = 'blur(16px)';
+      mainWrapper.style.pointerEvents = 'none';
+    }
+    if (logoutBtn) logoutBtn.style.display = 'none';
+  }
+}
+
+/**
+ * Handle Admin Login Submission
+ */
+function handleAdminLogin(e) {
+  e.preventDefault();
+  const user = document.getElementById('admin-username').value.trim();
+  const pass = document.getElementById('admin-password').value.trim();
+  const errorMsg = document.getElementById('login-error-msg');
+
+  if (user === 'admin' && pass === 'admin123') {
+    sessionStorage.setItem('dhobi_admin_auth', 'true');
+    if (errorMsg) errorMsg.style.display = 'none';
+    checkAdminAuth();
+  } else {
+    if (errorMsg) errorMsg.style.display = 'block';
+  }
+}
+
+/**
+ * Handle Admin Logout
+ */
+function handleAdminLogout() {
+  if (confirm('Are you sure you want to log out of the Executive Admin Panel?')) {
+    sessionStorage.removeItem('dhobi_admin_auth');
+    checkAdminAuth();
+  }
+}
+
+window.checkAdminAuth = checkAdminAuth;
+window.handleAdminLogin = handleAdminLogin;
+window.handleAdminLogout = handleAdminLogout;
+
 
 /**
  * Tab Switching
