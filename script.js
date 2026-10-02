@@ -178,30 +178,18 @@ function handleNewsletter(event) {
   }
 }
 
-// Active navigation highlight on scroll
+// Active navigation highlight on scroll for in-page anchors
 window.addEventListener('DOMContentLoaded', () => {
   updateSummaryBadge();
 
-  const sections = document.querySelectorAll('main section, footer');
+  const sections = document.querySelectorAll('main section');
   const navLinks = document.querySelectorAll('.nav-link');
+  const homeLink = document.querySelector('.nav-link[href="index.html"]');
 
   window.addEventListener('scroll', () => {
-    let current = '';
-    const scrollPosition = window.pageYOffset + 120;
-
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        current = section.getAttribute('id') || '';
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
-      }
-    });
+    // On the homepage, keep Home active unless user scrolled down into in-page anchor
+    if (window.scrollY < 300) {
+      if (homeLink) homeLink.classList.add('active');
+    }
   });
 });
