@@ -276,15 +276,18 @@ function handle7MClick() {
   }
 
   if (click7MCount < 4) {
-    showToast(`🔑 Admin Trigger: Clicked ${click7MCount}/4 times...`);
+    showToast(`🔑 Admin Trigger: Tapped ${click7MCount}/4 times...`);
   } else {
     click7MCount = 0;
-    showToast('🔓 Secret Admin Portal Unlocked! Loading Admin Hub...');
+    // Always clear session token so tapping 4 times MUST ask for admin credentials
+    sessionStorage.removeItem('dhobi_admin_auth');
+    showToast('🔒 4 Taps Verified! Opening Credentials Prompt...');
     setTimeout(() => {
       window.location.href = 'admin.html';
     }, 450);
   }
 }
+
 
 window.handle7MClick = handle7MClick;
 
