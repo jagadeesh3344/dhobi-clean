@@ -290,6 +290,7 @@ window.handle7MClick = handle7MClick;
 
 window.addEventListener('DOMContentLoaded', () => {
   updateSummaryBadge();
+  initTimeSlotFilter();
 
   const sections = document.querySelectorAll('main section');
   const navLinks = document.querySelectorAll('.nav-link');
@@ -311,3 +312,72 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+/**
+ * Filter out past time slots when 'Today' is selected
+ */
+function updateAvailableTimeSlots() {
+  const daySelect = document.getElementById('pickup-day');
+  const timeSelect = document.getElementById('pickup-time');
+  if (!daySelect || !timeSelect) return;
+
+  const ALL_TIME_SLOTS = [
+    { value: 'Morning (8:00 AM - 12:00 PM)', text: 'Morning (8:00 AM - 12:00 PM)', endHour: 12 },
+    { value: 'Afternoon (12:00 PM - 4:00 PM)', text: 'Afternoon (12:00 PM - 4:00 PM)', endHour: 16 },
+    { value: 'Evening (4:00 PM - 8:00 PM)', text: 'Evening (4:00 PM - 8:00 PM)', endHour: 20 },
+    { value: 'Night (8:00 PM - 10:00 PM)', text: 'Night (8:00 PM - 10:00 PM)', endHour: 22 }
+  ];
+
+  const now = new Date();
+  const currentHour = now.getHours();
+  const currentSelectedTime = timeSelect.value;
+
+  // Filter slots whose end hour hasn't passed yet today
+  const todayAvailableSlots = ALL_TIME_SLOTS.filter(slot => currentHour < slot.endHour);
+
+  // Update Today option in day dropdown if all slots for today have ended
+  const todayOption = daySelect.querySelector('option[value="Today"]');
+  if (todayOption) {
+    if (todayAvailableSlots.length === 0) {
+      todayOption.disabled = true;
+      todayOption.textContent = 'Today (Slots Closed)';
+      if (daySelect.value === 'Today') {
+        daySelect.value = 'Tomorrow';
+      }
+    } else {
+      todayOption.disabled = false;
+      todayOption.textContent = 'Today';
+    }
+  }
+
+  const slotsToDisplay = (daySelect.value === 'Today') ? todayAvailableSlots : ALL_TIME_SLOTS;
+
+  // Re-populate time dropdown options
+  timeSelect.innerHTML = '';
+  slotsToDisplay.forEach(slot => {
+    const opt = document.createElement('option');
+    opt.value = slot.value;
+    opt.textContent = slot.text;
+    timeSelect.appendChild(opt);
+  });
+
+  // Keep previously selected option if available in new list
+  const exists = Array.from(timeSelect.options).some(opt => opt.value === currentSelectedTime);
+  if (exists) {
+    timeSelect.value = currentSelectedTime;
+  } else if (timeSelect.options.length > 0) {
+    timeSelect.selectedIndex = 0;
+  }
+}
+
+/**
+ * Initialize time slot filtering and add change listener
+ */
+function initTimeSlotFilter() {
+  const daySelect = document.getElementById('pickup-day');
+  if (daySelect) {
+    daySelect.addEventListener('change', updateAvailableTimeSlots);
+    updateAvailableTimeSlots();
+  }
+}
+
