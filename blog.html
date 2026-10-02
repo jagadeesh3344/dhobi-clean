@@ -14,7 +14,7 @@
 </head>
 <body class="blog-page">
 
-  <!-- Header / Navigation -->
+  <!-- Header / Navigation (Frosted Glass Pill Bar) -->
   <header class="site-header">
     <div class="header-container">
       <!-- Logo -->
@@ -31,20 +31,35 @@
         <span class="brand-name">Dhobic<span class="brand-highlight">lean</span></span>
       </a>
 
-      <!-- Navigation Links -->
+      <!-- Navigation Links (Frosted Glass Pills like reference image) -->
       <nav class="main-nav" aria-label="Main Navigation">
         <ul class="nav-links">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="about.html" class="nav-link">About Us</a></li>
-          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li>
+            <a href="services.html" class="nav-link">
+              Services <span class="nav-badge">HOT</span>
+              <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="6 9 12 15 18 9"/></svg>
+            </a>
+          </li>
           <li><a href="blog.html" class="nav-link active">Blog</a></li>
-          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+          <li>
+            <a href="contact.html" class="nav-link">
+              Contact Us <span class="nav-badge blue">24x7</span>
+            </a>
+          </li>
         </ul>
       </nav>
 
-      <!-- Header Action -->
+      <!-- Header Action & Glass Controls -->
       <div class="header-action">
-        <a href="index.html#booking-section" class="btn-schedule-nav" id="nav-schedule-btn">Schedule Pickup</a>
+        <button type="button" class="glass-icon-btn" onclick="alert('Quick Search: Type any laundry service, dry cleaning item, or store location!')" aria-label="Search site">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <a href="index.html#booking-section" class="btn-schedule-nav" id="nav-schedule-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Schedule Pickup
+        </a>
       </div>
     </div>
   </header>

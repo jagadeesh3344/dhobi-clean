@@ -145,22 +145,27 @@ button, input, select {
   }
 }
 
-/* ----------------- Header / Navigation ----------------- */
+/* ----------------- Header / Navigation (Glassmorphism Aesthetic) ----------------- */
 .site-header {
   position: sticky;
-  top: 0;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.75);
-  z-index: 100;
-  transition: all var(--transition-smooth);
+  top: 14px;
+  width: calc(100% - 32px);
+  max-width: 1240px;
+  margin: 10px auto 16px;
+  background: rgba(255, 255, 255, 0.65) !important;
+  backdrop-filter: blur(20px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.75) !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 12px 32px -8px rgba(2, 132, 199, 0.14), 0 4px 16px rgba(11, 26, 45, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.95) !important;
+  z-index: 1000;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .header-container {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 14px 24px;
+  padding: 8px 16px 8px 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -171,14 +176,22 @@ button, input, select {
   align-items: center;
   gap: 10px;
   text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  transition: transform var(--transition-fast);
+}
+
+.brand-logo:hover {
+  transform: scale(1.02);
 }
 
 .logo-icon-wrapper {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
+  filter: drop-shadow(0 4px 8px rgba(2, 132, 199, 0.25));
 }
 
 .logo-icon-wrapper.small {
@@ -206,58 +219,142 @@ button, input, select {
   color: var(--primary-blue);
 }
 
+/* Glass Pill Navigation Bar */
 .main-nav .nav-links {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 8px;
 }
 
 .nav-link {
-  position: relative;
-  font-size: 14.5px;
-  font-weight: 500;
-  color: #475569;
-  padding: 6px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1e293b;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
-  color: var(--primary-dark-navy);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--primary-blue);
+  border-color: rgba(56, 189, 248, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.15);
 }
 
 .nav-link.active {
-  color: var(--primary-dark-navy);
-  font-weight: 600;
+  background: rgba(2, 132, 199, 0.12);
+  color: var(--primary-blue);
+  border: 1.5px solid rgba(2, 132, 199, 0.45);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.18);
+  font-weight: 800;
 }
 
-.nav-link.active::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 100%;
-  height: 2.5px;
-  background-color: var(--primary-blue);
-  border-radius: 4px;
+.nav-badge {
+  background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  box-shadow: 0 2px 8px rgba(236, 72, 153, 0.4);
+  line-height: 1.1;
+}
+
+.nav-badge.blue {
+  background: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
+}
+
+.nav-badge.green {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
+}
+
+.nav-chevron {
+  width: 12px;
+  height: 12px;
+  stroke-width: 2.5;
+  opacity: 0.7;
+  transition: transform 0.2s ease;
+}
+
+.nav-link:hover .nav-chevron {
+  transform: translateY(2px);
+  opacity: 1;
+}
+
+/* Header Actions & Glass Buttons */
+.header-action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.glass-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #1e293b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.glass-icon-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.glass-icon-btn:hover {
+  background: #ffffff;
+  color: var(--primary-blue);
+  border-color: #bae6fd;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.15);
 }
 
 .btn-schedule-nav {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--primary-dark-navy);
-  color: #ffffff;
-  font-size: 13.5px;
-  font-weight: 600;
-  padding: 10px 22px;
-  border-radius: 9999px;
-  transition: all var(--transition-fast);
-  box-shadow: 0 2px 8px rgba(11, 26, 45, 0.12);
+  gap: 6px;
+  background: linear-gradient(135deg, #0b1a2d 0%, #0284c7 100%) !important;
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  padding: 10px 22px !important;
+  border-radius: 9999px !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.28) !important;
+  backdrop-filter: blur(10px) !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  text-decoration: none !important;
 }
 
 .btn-schedule-nav:hover {
-  background-color: #1a2f4c;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(11, 26, 45, 0.2);
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.42) !important;
 }
 
 /* ----------------- Hero Section ----------------- */
@@ -1402,4 +1499,49 @@ button, input, select {
     text-align: center;
     gap: 8px;
   }
+}
+
+/* ----------------- Instant Performance Progress & Speed Acceleration ----------------- */
+#page-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #0284c7 0%, #38bdf8 50%, #ec4899 100%);
+  z-index: 99999;
+  width: 0%;
+  transition: width 0.15s ease, opacity 0.25s ease;
+  box-shadow: 0 0 10px #38bdf8, 0 0 5px #ec4899;
+  pointer-events: none;
+}
+
+body.is-navigating {
+  cursor: progress !important;
+}
+
+body.is-navigating * {
+  pointer-events: none;
+}
+
+/* Touch & Instant Click Speed Acceleration */
+a, button, input, select, textarea, .nav-link, .service-item-card {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Glassmorphism Card Utility Classes */
+.glass-card {
+  background: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 12px 36px -8px rgba(11, 26, 45, 0.08) !important;
+}
+
+.glass-card-dark {
+  background: rgba(11, 26, 45, 0.85) !important;
+  backdrop-filter: blur(20px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 20px 48px -12px rgba(8, 20, 36, 0.4) !important;
 }
