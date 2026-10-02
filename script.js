@@ -61,12 +61,12 @@ function updateSummaryBadge() {
 
   if (totalItems === 0) {
     badgeEl.textContent = '0 items selected';
-    badgeEl.style.color = '#38bdf8';
-    badgeEl.style.backgroundColor = 'rgba(56, 189, 248, 0.12)';
+    badgeEl.style.color = '#0284c7';
+    badgeEl.style.backgroundColor = '#e0f2fe';
   } else {
     badgeEl.textContent = `${totalItems} items selected • ₹${totalCost.toLocaleString('en-IN')}`;
-    badgeEl.style.color = '#4ade80';
-    badgeEl.style.backgroundColor = 'rgba(74, 222, 128, 0.15)';
+    badgeEl.style.color = '#059669';
+    badgeEl.style.backgroundColor = '#d1fae5';
   }
 }
 

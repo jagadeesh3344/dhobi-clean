@@ -507,26 +507,26 @@ button, input, select {
   margin-top: 2px;
 }
 
-/* ----------------- Dark Interactive Booking Card Section ----------------- */
+/* ----------------- Fresh & Harmonious Interactive Booking Card Section ----------------- */
 .booking-section {
   position: relative;
   padding: 50px 24px 70px;
-  background: linear-gradient(180deg, #ffffff 0%, #f4f8fc 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #f0f7fc 50%, #ffffff 100%);
   z-index: 3;
 }
 
 .booking-card-wrapper {
-  max-width: 860px;
+  max-width: 880px;
   margin: 0 auto;
 }
 
 .booking-card {
-  background-color: var(--navy-card-bg);
-  border: 1px solid var(--border-subtle-card);
+  background: #ffffff;
+  border: 1.5px solid #e0f0fa;
   border-radius: 24px;
-  padding: 38px 42px;
-  box-shadow: var(--shadow-card-dark);
-  color: #ffffff;
+  padding: 40px 44px;
+  box-shadow: 0 20px 45px -12px rgba(2, 132, 199, 0.08), 0 4px 16px -2px rgba(11, 26, 45, 0.03);
+  color: var(--text-dark);
   position: relative;
 }
 
@@ -536,19 +536,19 @@ button, input, select {
 }
 
 .card-title {
-  font-size: 23px;
-  font-weight: 700;
-  color: #ffffff;
+  font-size: 24px;
+  font-weight: 800;
+  color: #0b1a2d;
   letter-spacing: -0.02em;
   margin-bottom: 6px;
 }
 
 .card-subtitle {
-  font-size: 13px;
-  color: var(--text-light-slate);
+  font-size: 13.5px;
+  color: #64748b;
   max-width: 580px;
   margin: 0 auto;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 /* Labels and Icons */
@@ -559,7 +559,7 @@ button, input, select {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.05em;
-  color: #cbd5e1;
+  color: #475569;
   text-transform: uppercase;
   margin-bottom: 8px;
 }
@@ -567,7 +567,7 @@ button, input, select {
 .field-icon {
   width: 14px;
   height: 14px;
-  color: #38bdf8;
+  color: #0284c7;
   flex-shrink: 0;
 }
 
@@ -586,25 +586,26 @@ button, input, select {
 
 .input-field-wrapper input {
   width: 100%;
-  background-color: var(--navy-input-bg);
-  border: 1px solid var(--navy-input-border);
-  border-radius: 8px;
+  background-color: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
   padding: 11px 14px;
-  color: #ffffff;
+  color: #0b1a2d;
   font-size: 13px;
+  font-weight: 500;
   outline: none;
   transition: all var(--transition-fast);
 }
 
 .input-field-wrapper input::placeholder {
-  color: #64748b;
+  color: #94a3b8;
   font-size: 12.5px;
 }
 
 .input-field-wrapper input:focus {
-  border-color: #38bdf8;
-  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
-  background-color: #172d47;
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
+  background-color: #ffffff;
 }
 
 /* Time Slot Section */
@@ -628,11 +629,11 @@ button, input, select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-color: var(--navy-input-bg);
-  border: 1px solid var(--navy-input-border);
-  border-radius: 8px;
+  background-color: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
   padding: 11px 36px 11px 14px;
-  color: #ffffff;
+  color: #0b1a2d;
   font-size: 13px;
   font-weight: 500;
   outline: none;
@@ -641,14 +642,14 @@ button, input, select {
 }
 
 .select-wrapper select:focus {
-  border-color: #38bdf8;
-  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
-  background-color: #172d47;
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
+  background-color: #ffffff;
 }
 
 .select-wrapper select option {
-  background-color: #0b1a2d;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #0b1a2d;
 }
 
 .dropdown-arrow {
@@ -658,7 +659,7 @@ button, input, select {
   transform: translateY(-50%);
   width: 15px;
   height: 15px;
-  color: #94a3b8;
+  color: #64748b;
   pointer-events: none;
 }
 
@@ -677,11 +678,11 @@ button, input, select {
 .cart-summary-badge {
   font-size: 11.5px;
   font-weight: 600;
-  color: #38bdf8;
-  background-color: rgba(56, 189, 248, 0.12);
-  padding: 3px 10px;
+  color: #0284c7;
+  background-color: #e0f2fe;
+  padding: 4px 12px;
   border-radius: 9999px;
-  border: 1px solid rgba(56, 189, 248, 0.25);
+  border: 1px solid #bae6fd;
 }
 
 .service-cards-grid {
@@ -691,10 +692,10 @@ button, input, select {
 }
 
 .service-item-card {
-  background-color: var(--navy-input-bg);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 9px;
-  padding: 10px 14px;
+  background-color: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 11px 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -702,13 +703,15 @@ button, input, select {
 }
 
 .service-item-card:hover {
-  border-color: rgba(56, 189, 248, 0.35);
-  background-color: #182e49;
+  border-color: #38bdf8;
+  background-color: #f0f9ff;
+  transform: translateY(-1px);
 }
 
 .service-item-card.has-items {
   border-color: #0284c7;
-  background-color: #162f4e;
+  background-color: #f0f9ff;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.08);
 }
 
 .service-item-left {
@@ -718,15 +721,16 @@ button, input, select {
 }
 
 .service-icon-box {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  background-color: #102135;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background-color: #e0f2fe;
+  border: 1px solid #bae6fd;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  color: #0284c7;
 }
 
 .service-icon-box svg {
@@ -741,21 +745,22 @@ button, input, select {
 
 .service-title {
   font-size: 13.5px;
-  font-weight: 600;
-  color: #f8fafc;
+  font-weight: 700;
+  color: #0b1a2d;
   line-height: 1.25;
 }
 
 .service-rate {
   font-size: 11.5px;
-  font-weight: 500;
-  color: #38bdf8;
+  font-weight: 600;
+  color: #0284c7;
   margin-top: 1px;
 }
 
 .rate-subtext {
-  color: #94a3b8;
+  color: #64748b;
   font-size: 11px;
+  font-weight: 400;
 }
 
 /* Stepper Controls */
@@ -763,19 +768,19 @@ button, input, select {
   display: flex;
   align-items: center;
   gap: 6px;
-  background-color: #0d1e33;
+  background-color: #ffffff;
   padding: 3px 6px;
-  border-radius: 7px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  border: 1.5px solid #e2e8f0;
 }
 
 .btn-stepper {
   width: 24px;
   height: 24px;
-  border-radius: 5px;
-  background-color: var(--navy-btn-stepper);
+  border-radius: 6px;
+  background-color: #f1f5f9;
   border: none;
-  color: #ffffff;
+  color: #0b1a2d;
   font-size: 14px;
   font-weight: 700;
   display: flex;
@@ -787,8 +792,8 @@ button, input, select {
 }
 
 .btn-stepper:hover {
-  background-color: var(--navy-btn-stepper-hover);
-  color: #38bdf8;
+  background-color: #0284c7;
+  color: #ffffff;
 }
 
 .btn-stepper:active {
@@ -798,7 +803,7 @@ button, input, select {
 .stepper-value {
   font-size: 13px;
   font-weight: 700;
-  color: #ffffff;
+  color: #0b1a2d;
   min-width: 18px;
   text-align: center;
 }
@@ -815,24 +820,24 @@ button, input, select {
 
 .btn-schedule-submit {
   width: 100%;
-  background-color: var(--accent-green);
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
   color: #ffffff;
   border: none;
-  padding: 14px 20px;
-  border-radius: 10px;
+  padding: 15px 20px;
+  border-radius: 12px;
   font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(90, 181, 122, 0.3);
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.28);
   transition: all var(--transition-fast);
 }
 
 .btn-schedule-submit:hover {
-  background-color: var(--accent-green-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(90, 181, 122, 0.4);
+  background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.4);
 }
 
 .btn-schedule-submit:active {
@@ -1172,18 +1177,18 @@ button, input, select {
 }
 
 .modal-box {
-  background-color: #0c1b2f;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 18px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
   width: 100%;
   max-width: 480px;
-  padding: 32px 28px;
+  padding: 34px 30px;
   text-align: center;
   position: relative;
   transform: translateY(20px) scale(0.96);
   transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
-  color: #ffffff;
+  box-shadow: 0 25px 50px -12px rgba(11, 26, 45, 0.22);
+  color: #0b1a2d;
 }
 
 .modal-backdrop.show .modal-box {
@@ -1200,17 +1205,18 @@ button, input, select {
   font-size: 24px;
   cursor: pointer;
   line-height: 1;
+  transition: color var(--transition-fast);
 }
 
 .modal-close:hover {
-  color: #ffffff;
+  color: #0b1a2d;
 }
 
 .modal-success-icon {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background-color: rgba(16, 185, 129, 0.15);
+  background-color: #ecfdf5;
   border: 1.5px solid #10b981;
   display: inline-flex;
   align-items: center;
@@ -1224,43 +1230,47 @@ button, input, select {
 }
 
 .modal-title {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 21px;
+  font-weight: 800;
+  color: #0b1a2d;
   margin-bottom: 8px;
 }
 
 .modal-desc {
   font-size: 13.5px;
-  color: #94a3b8;
+  color: #64748b;
   margin-bottom: 18px;
   line-height: 1.5;
 }
 
 .modal-details {
-  background-color: #15273e;
-  border-radius: 10px;
+  background-color: #f0f7fc;
+  border: 1px solid #e0f0fa;
+  border-radius: 12px;
   padding: 14px 16px;
   text-align: left;
   font-size: 12.5px;
   margin-bottom: 22px;
-  color: #cbd5e1;
+  color: #0b1a2d;
   line-height: 1.6;
 }
 
 .btn-modal-action {
-  background-color: var(--accent-green);
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
   color: #ffffff;
   border: none;
-  padding: 11px 32px;
-  border-radius: 8px;
+  padding: 12px 34px;
+  border-radius: 10px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: background var(--transition-fast);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+  transition: all var(--transition-fast);
 }
 
 .btn-modal-action:hover {
-  background-color: var(--accent-green-hover);
+  background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+  transform: translateY(-1px);
 }
 
 /* ----------------- Responsive Breakpoints ----------------- */
