@@ -187,7 +187,7 @@ body.admin-body {
 .kpi-title {
   font-size: 12.5px;
   font-weight: 800;
-  color: #94a3b8;
+  color: #cbd5e1;
   text-transform: uppercase;
   letter-spacing: 0.06em;
 }
@@ -241,7 +241,7 @@ body.admin-body {
   letter-spacing: -0.02em;
   line-height: 1.1;
   margin-bottom: 10px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
 .kpi-trend {
@@ -259,10 +259,10 @@ body.admin-body {
    Modern Floating Tab Navigation Pill Bar
    -------------------------------------------------------------------------- */
 .admin-tabs-bar {
-  background: rgba(10, 20, 38, 0.7);
+  background: rgba(10, 20, 38, 0.85);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 7px;
   border-radius: 9999px;
   display: inline-flex;
@@ -277,7 +277,7 @@ body.admin-body {
 .admin-tab-btn {
   background: transparent;
   border: none;
-  color: #94a3b8;
+  color: #cbd5e1;
   font-size: 13.5px;
   font-weight: 700;
   padding: 11px 22px;
@@ -288,7 +288,7 @@ body.admin-body {
 }
 
 .admin-tab-btn:hover {
-  background: rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.12);
   color: #ffffff;
 }
 
@@ -323,7 +323,7 @@ body.admin-body {
   background: var(--admin-card-bg);
   backdrop-filter: blur(30px) saturate(180%);
   -webkit-backdrop-filter: blur(30px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
   border-radius: 28px;
   padding: 32px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
@@ -344,11 +344,12 @@ body.admin-body {
   color: #ffffff;
   margin: 0 0 6px 0;
   letter-spacing: -0.01em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .panel-subtitle {
   font-size: 13.5px;
-  color: #94a3b8;
+  color: #cbd5e1;
   margin: 0;
 }
 
@@ -361,8 +362,8 @@ body.admin-body {
 
 /* Search input field */
 #order-search-input {
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(15, 23, 42, 0.82);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
   border-radius: 12px;
   padding: 11px 18px;
   font-size: 13.5px;
@@ -374,13 +375,13 @@ body.admin-body {
 }
 
 #order-search-input::placeholder {
-  color: #64748b;
+  color: #cbd5e1;
 }
 
 #order-search-input:focus {
   border-color: #38bdf8;
   box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25), 0 0 20px rgba(56, 189, 248, 0.15);
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(15, 23, 42, 0.95);
 }
 
 /* Executive Action Buttons */
@@ -404,15 +405,15 @@ body.admin-body {
 }
 
 .btn-admin-action.secondary {
-  background: rgba(255, 255, 255, 0.08);
-  color: #f1f5f9;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
   box-shadow: none;
 }
 
 .btn-admin-action.secondary:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.4);
   transform: translateY(-2px);
 }
 
@@ -423,7 +424,7 @@ body.admin-body {
   width: 100%;
   overflow-x: auto;
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .admin-table {
@@ -434,22 +435,24 @@ body.admin-body {
 }
 
 .admin-table th {
-  background: rgba(15, 23, 42, 0.6);
-  color: #94a3b8;
+  background: rgba(15, 23, 42, 0.85);
+  color: #e2e8f0;
   font-weight: 800;
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 11.5px;
   letter-spacing: 0.08em;
   padding: 16px 18px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.18);
 }
 
 .admin-table td {
   padding: 18px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  color: #e2e8f0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
   vertical-align: middle;
+  font-weight: 500;
 }
+
 
 .admin-table tbody tr {
   transition: all 0.2s ease;

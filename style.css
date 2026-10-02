@@ -21,14 +21,14 @@
   --accent-green-soft: #d1fae5;
   
   --text-dark: #0b1a2d;
-  --text-muted: #64748b;
-  --text-light-slate: #94a3b8;
+  --text-muted: #334155;
+  --text-light-slate: #475569;
   --text-white: #ffffff;
   
   --bg-page: #f8fbfe;
   --bg-hero-gradient: linear-gradient(180deg, #f0f8fd 0%, #e6f4fb 45%, #ffffff 100%);
   --border-light: #e2e8f0;
-  --border-subtle-card: rgba(255, 255, 255, 0.08);
+  --border-subtle-card: rgba(255, 255, 255, 0.15);
 
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -1538,7 +1538,7 @@ body {
   background: radial-gradient(circle at 10% 20%, #eef7fc 0%, #e0f2fe 35%, #f0f7ff 70%, #f8fbfe 100%) fixed !important;
 }
 
-/* Master Frosted Glass Card Treatment (15%-25% White Opacity + 30px Blur + Inner Specular Highlight) */
+/* Master Frosted Glass Card Treatment (72%-80% Controlled Translucency + 28px Blur + Inner Specular Highlight) */
 .glass-card,
 .feature-card,
 .stat-card,
@@ -1553,7 +1553,6 @@ body {
 .store-details-card,
 .booking-card,
 .modal-box,
-.card-header,
 .contact-channel-item,
 .channel-icon-circle,
 .about-stats-section,
@@ -1567,16 +1566,24 @@ body {
 .story-image-card,
 .services-hero-image-card,
 .blog-hero-image-card {
-  background: rgba(255, 255, 255, 0.22) !important;
-  backdrop-filter: blur(30px) saturate(220%) !important;
-  -webkit-backdrop-filter: blur(30px) saturate(220%) !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.65) !important;
-  box-shadow: 0 20px 50px -10px rgba(2, 132, 199, 0.15), 0 8px 30px rgba(11, 26, 45, 0.08), inset 0 1.5px 1px rgba(255, 255, 255, 0.8) !important;
+  background: rgba(255, 255, 255, 0.76) !important;
+  backdrop-filter: blur(28px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(200%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
+  box-shadow: 0 20px 45px -10px rgba(2, 132, 199, 0.12), 0 8px 30px rgba(11, 26, 45, 0.06), inset 0 1.5px 1px rgba(255, 255, 255, 0.95) !important;
   border-radius: 26px;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-/* Progressive Foreground Glass Elements (Stronger 25-35% Translucency, Brighter Highlights) */
+/* Header card inside booking-card stays rich dark navy with crisp text */
+.card-header {
+  background: linear-gradient(135deg, rgba(11, 26, 45, 0.94) 0%, rgba(21, 39, 62, 0.96) 100%) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+/* Progressive Foreground Glass Elements (82%-88% Opacity + Sharp Contrast) */
 .input-field-wrapper input,
 .select-wrapper select,
 .stepper-controls,
@@ -1592,11 +1599,12 @@ body {
 .value-icon-circle,
 .modal-details,
 .modal-success-icon {
-  background: rgba(255, 255, 255, 0.32) !important;
-  backdrop-filter: blur(24px) saturate(200%) !important;
-  -webkit-backdrop-filter: blur(24px) saturate(200%) !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.65) !important;
-  box-shadow: 0 8px 20px -4px rgba(2, 132, 199, 0.12), inset 0 1px 1px rgba(255, 255, 255, 0.9) !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(20px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
+  border: 1.5px solid rgba(2, 132, 199, 0.35) !important;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.1), inset 0 1px 1px rgba(255, 255, 255, 1) !important;
+  color: #0b1a2d !important;
 }
 
 /* Interactive Card Hover States */
@@ -1608,10 +1616,10 @@ body {
 .value-card:hover,
 .mv-card:hover,
 .service-card-item:hover {
-  background: rgba(255, 255, 255, 0.42) !important;
+  background: rgba(255, 255, 255, 0.88) !important;
   transform: translateY(-5px) scale(1.015) !important;
-  box-shadow: 0 28px 60px -10px rgba(2, 132, 199, 0.26), 0 12px 36px rgba(11, 26, 45, 0.1), inset 0 1.5px 1px rgba(255, 255, 255, 1) !important;
-  border-color: rgba(255, 255, 255, 0.85) !important;
+  box-shadow: 0 28px 60px -10px rgba(2, 132, 199, 0.22), 0 12px 36px rgba(11, 26, 45, 0.08), inset 0 1.5px 1px rgba(255, 255, 255, 1) !important;
+  border-color: rgba(255, 255, 255, 0.95) !important;
 }
 
 /* Dark Mode Liquid Glass Cards (Admin Panel) */
@@ -1619,9 +1627,10 @@ body {
 .admin-kpi-card,
 .panel-card,
 .admin-modal-box {
-  background: rgba(11, 26, 45, 0.45) !important;
-  backdrop-filter: blur(35px) saturate(230%) !important;
-  -webkit-backdrop-filter: blur(35px) saturate(230%) !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.22) !important;
-  box-shadow: 0 28px 65px -12px rgba(8, 20, 36, 0.55), inset 0 1.5px 1.5px rgba(255, 255, 255, 0.2) !important;
+  background: linear-gradient(145deg, rgba(15, 25, 45, 0.86), rgba(9, 16, 32, 0.92)) !important;
+  backdrop-filter: blur(30px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(30px) saturate(200%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 28px 65px -12px rgba(0, 0, 0, 0.6), inset 0 1.5px 1.5px rgba(255, 255, 255, 0.22) !important;
 }
+
