@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- Leaflet CSS for Map -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <!-- Leaflet CSS for Map (Local for instant load) -->
+  <link rel="stylesheet" href="assets/leaflet.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="contact.css">
 </head>
@@ -152,7 +152,7 @@
         <!-- Right Side: Friendly Representative Image -->
         <div class="contact-hero-right">
           <div class="contact-person-wrapper">
-            <img src="assets/contact-woman-hires.png" alt="Friendly Dhobiclean Laundry Care Specialist" class="contact-person-img">
+            <img src="assets/contact-woman-hires.png" alt="Friendly Dhobiclean Laundry Care Specialist" class="contact-person-img" fetchpriority="high" decoding="async">
           </div>
         </div>
 
@@ -199,7 +199,7 @@
           <!-- Leaflet Interactive Map Container with Fallback Image -->
           <div id="dhobi-leaflet-map" class="interactive-map"></div>
           <div class="map-fallback-overlay" id="map-fallback">
-            <img src="assets/contact-map.png" alt="Dhobiclean Hub Location Map" class="map-static-img">
+            <img src="assets/contact-map.png" alt="Dhobiclean Hub Location Map" class="map-static-img" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
@@ -314,8 +314,9 @@
     </div>
   </footer>
 
-  <!-- Leaflet JS for Map -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="contact.js"></script>
+  <!-- Leaflet JS for Map (Local for instant load) -->
+  <script src="assets/leaflet.js" defer></script>
+  <script src="contact.js" defer></script>
+  <script src="prefetch.js" defer></script>
 </body>
 </html>

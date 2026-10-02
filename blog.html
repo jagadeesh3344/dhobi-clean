@@ -68,7 +68,7 @@
         </div>
         <div class="blog-hero-visual">
           <div class="blog-hero-image-card">
-            <img src="assets/blog-hero.jpg" alt="Dhobiclean blog fresh laundry basket, indoor plant and linen spray" class="blog-hero-img">
+            <img src="assets/blog-hero.jpg" alt="Dhobiclean blog fresh laundry basket, indoor plant and linen spray" class="blog-hero-img" fetchpriority="high" decoding="async">
             <div class="bubble-accent bubble-blog-1"></div>
             <div class="bubble-accent bubble-blog-2"></div>
           </div>
@@ -94,7 +94,7 @@
         <!-- Card 1 -->
         <article class="blog-card-item">
           <div class="blog-thumb-wrapper">
-            <img src="assets/blog-1.jpg" alt="How to Keep Your Clothes Fresh for Longer" class="blog-thumb-img">
+            <img src="assets/blog-1.jpg" alt="How to Keep Your Clothes Fresh for Longer" class="blog-thumb-img" loading="lazy" decoding="async">
           </div>
           <div class="blog-card-content">
             <div class="blog-tag-badge">Everyday Care</div>
@@ -107,7 +107,7 @@
         <!-- Card 2 -->
         <article class="blog-card-item">
           <div class="blog-thumb-wrapper">
-            <img src="assets/blog-2.jpg" alt="A Complete Guide to Dry Cleaning" class="blog-thumb-img">
+            <img src="assets/blog-2.jpg" alt="A Complete Guide to Dry Cleaning" class="blog-thumb-img" loading="lazy" decoding="async">
           </div>
           <div class="blog-card-content">
             <div class="blog-tag-badge">Fabric Guide</div>
@@ -120,7 +120,7 @@
         <!-- Card 3 -->
         <article class="blog-card-item">
           <div class="blog-thumb-wrapper">
-            <img src="assets/blog-3.jpg" alt="Eco-Friendly Laundry Tips for a Greener Tomorrow" class="blog-thumb-img">
+            <img src="assets/blog-3.jpg" alt="Eco-Friendly Laundry Tips for a Greener Tomorrow" class="blog-thumb-img" loading="lazy" decoding="async">
           </div>
           <div class="blog-card-content">
             <div class="blog-tag-badge">Sustainable Living</div>
@@ -133,7 +133,7 @@
         <!-- Card 4 -->
         <article class="blog-card-item">
           <div class="blog-thumb-wrapper">
-            <img src="assets/blog-4.jpg" alt="How Often Should You Wash Bedding and Curtains?" class="blog-thumb-img">
+            <img src="assets/blog-4.jpg" alt="How Often Should You Wash Bedding and Curtains?" class="blog-thumb-img" loading="lazy" decoding="async">
           </div>
           <div class="blog-card-content">
             <div class="blog-tag-badge">Home & Care</div>
@@ -146,7 +146,7 @@
         <!-- Card 5 -->
         <article class="blog-card-item">
           <div class="blog-thumb-wrapper">
-            <img src="assets/blog-5.jpg" alt="Tips to Remove Tough Stains at Home" class="blog-thumb-img">
+            <img src="assets/blog-5.jpg" alt="Tips to Remove Tough Stains at Home" class="blog-thumb-img" loading="lazy" decoding="async">
           </div>
           <div class="blog-card-content">
             <div class="blog-tag-badge">Stain Removal</div>
@@ -159,7 +159,7 @@
         <!-- Card 6 -->
         <article class="blog-card-item">
           <div class="blog-thumb-wrapper">
-            <img src="assets/blog-6.jpg" alt="The Future of Laundry: Smarter, Simpler & Greener" class="blog-thumb-img">
+            <img src="assets/blog-6.jpg" alt="The Future of Laundry: Smarter, Simpler & Greener" class="blog-thumb-img" loading="lazy" decoding="async">
           </div>
           <div class="blog-card-content">
             <div class="blog-tag-badge">Care & Lifestyle</div>
@@ -296,6 +296,7 @@
     </div>
   </footer>
 
-  <script src="blog.js"></script>
+  <script src="blog.js" defer></script>
+  <script src="prefetch.js" defer></script>
 </body>
 </html>

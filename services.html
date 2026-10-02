@@ -69,7 +69,7 @@
         </div>
         <div class="services-hero-visual">
           <div class="services-hero-image-card">
-            <img src="assets/services-hero.jpg" alt="Neatly folded pastel towels, detergents, and soap bubbles" class="services-hero-img">
+            <img src="assets/services-hero.jpg" alt="Neatly folded pastel towels, detergents, and soap bubbles" class="services-hero-img" fetchpriority="high" decoding="async">
             <!-- Floating bubble accents -->
             <div class="bubble-accent bubble-acc-1"></div>
             <div class="bubble-accent bubble-acc-2"></div>
@@ -95,7 +95,7 @@
         <!-- Card 1: Wash & Fold -->
         <div class="service-card-item" data-category="laundry">
           <div class="service-thumb-container">
-            <img src="assets/service-wash-fold.jpg" alt="Wash and Fold Service" class="service-thumb-img">
+            <img src="assets/service-wash-fold.jpg" alt="Wash and Fold Service" class="service-thumb-img" loading="lazy" decoding="async">
           </div>
           <div class="service-card-body">
             <h3 class="service-card-title">Wash & Fold</h3>
@@ -108,7 +108,7 @@
         <!-- Card 2: Wash & Iron -->
         <div class="service-card-item" data-category="laundry">
           <div class="service-thumb-container">
-            <img src="assets/service-wash-iron.jpg" alt="Wash and Iron Service" class="service-thumb-img">
+            <img src="assets/service-wash-iron.jpg" alt="Wash and Iron Service" class="service-thumb-img" loading="lazy" decoding="async">
           </div>
           <div class="service-card-body">
             <h3 class="service-card-title">Wash & Iron</h3>
@@ -121,7 +121,7 @@
         <!-- Card 3: Dry Cleaning -->
         <div class="service-card-item" data-category="dry-cleaning">
           <div class="service-thumb-container">
-            <img src="assets/service-dry-cleaning.jpg" alt="Dry Cleaning Service" class="service-thumb-img">
+            <img src="assets/service-dry-cleaning.jpg" alt="Dry Cleaning Service" class="service-thumb-img" loading="lazy" decoding="async">
           </div>
           <div class="service-card-body">
             <h3 class="service-card-title">Dry Cleaning</h3>
@@ -134,7 +134,7 @@
         <!-- Card 4: Steam Iron -->
         <div class="service-card-item" data-category="special-care">
           <div class="service-thumb-container">
-            <img src="assets/service-steam-iron.jpg" alt="Steam Iron Service" class="service-thumb-img">
+            <img src="assets/service-steam-iron.jpg" alt="Steam Iron Service" class="service-thumb-img" loading="lazy" decoding="async">
           </div>
           <div class="service-card-body">
             <h3 class="service-card-title">Steam Iron</h3>
@@ -147,7 +147,7 @@
         <!-- Card 5: Shoe Cleaning -->
         <div class="service-card-item" data-category="special-care">
           <div class="service-thumb-container">
-            <img src="assets/service-shoe-cleaning.jpg" alt="Shoe Cleaning Service" class="service-thumb-img">
+            <img src="assets/service-shoe-cleaning.jpg" alt="Shoe Cleaning Service" class="service-thumb-img" loading="lazy" decoding="async">
           </div>
           <div class="service-card-body">
             <h3 class="service-card-title">Shoe Cleaning</h3>
@@ -160,7 +160,7 @@
         <!-- Card 6: Curtains & Bedding -->
         <div class="service-card-item" data-category="special-care">
           <div class="service-thumb-container">
-            <img src="assets/service-curtains-bedding.jpg" alt="Curtains and Bedding Service" class="service-thumb-img">
+            <img src="assets/service-curtains-bedding.jpg" alt="Curtains and Bedding Service" class="service-thumb-img" loading="lazy" decoding="async">
           </div>
           <div class="service-card-body">
             <h3 class="service-card-title">Curtains & Bedding</h3>
@@ -293,6 +293,7 @@
     </div>
   </footer>
 
-  <script src="services.js"></script>
+  <script src="services.js" defer></script>
+  <script src="prefetch.js" defer></script>
 </body>
 </html>

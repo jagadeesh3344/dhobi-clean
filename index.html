@@ -87,7 +87,7 @@
         <!-- Right Visual / Image -->
         <div class="hero-visual">
           <div class="hero-image-wrapper">
-            <img src="assets/hero-laundry.jpg" alt="Dhobiclean modern washing machine and neatly folded clean laundry basket with detergent" class="hero-main-img" id="hero-laundry-img">
+            <img src="assets/hero-laundry.jpg" alt="Dhobiclean modern washing machine and neatly folded clean laundry basket with detergent" class="hero-main-img" id="hero-laundry-img" fetchpriority="high" decoding="async">
             
             <!-- Subtle floating glow or accent bubble -->
             <div class="visual-glow"></div>
@@ -646,6 +646,7 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
+  <script src="prefetch.js" defer></script>
 </body>
 </html>
