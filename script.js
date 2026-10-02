@@ -178,13 +178,72 @@ function handleNewsletter(event) {
   }
 }
 
-// Active navigation highlight on scroll for in-page anchors
+// Active navigation highlight on scroll for in-page anchors & 7M Secret Admin Trigger
+let click7MCount = 0;
+let click7MTime = 0;
+
+function showToast(msg) {
+  let toast = document.getElementById('admin-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'admin-toast';
+    toast.style.cssText = 'position: fixed; bottom: 24px; right: 24px; background: rgba(11, 26, 45, 0.9); color: #38bdf8; padding: 12px 20px; border-radius: 9999px; font-weight: 800; font-size: 13px; z-index: 99999; backdrop-filter: blur(12px); border: 1.5px solid #0284c7; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease; transform: translateY(50px); opacity: 0;';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = msg;
+  toast.style.transform = 'translateY(0)';
+  toast.style.opacity = '1';
+
+  clearTimeout(toast.timer);
+  toast.timer = setTimeout(() => {
+    toast.style.transform = 'translateY(50px)';
+    toast.style.opacity = '0';
+  }, 2200);
+}
+
+function handle7MClick() {
+  const now = Date.now();
+  if (now - click7MTime > 2500) {
+    click7MCount = 1;
+  } else {
+    click7MCount++;
+  }
+  click7MTime = now;
+
+  const statCard = document.getElementById('stat-card-7m') || document.querySelector('.stat-card');
+  if (statCard) {
+    statCard.style.transform = 'scale(0.95)';
+    setTimeout(() => { statCard.style.transform = ''; }, 150);
+  }
+
+  if (click7MCount < 4) {
+    showToast(`🔑 Admin Trigger: Clicked ${click7MCount}/4 times...`);
+  } else {
+    click7MCount = 0;
+    showToast('🔓 Secret Admin Portal Unlocked! Loading Admin Hub...');
+    setTimeout(() => {
+      window.location.href = 'admin.html';
+    }, 450);
+  }
+}
+
+window.handle7MClick = handle7MClick;
+
 window.addEventListener('DOMContentLoaded', () => {
   updateSummaryBadge();
 
   const sections = document.querySelectorAll('main section');
   const navLinks = document.querySelectorAll('.nav-link');
   const homeLink = document.querySelector('.nav-link[href="index.html"]');
+
+  // Attach 4-click trigger to 7M+ Happy Customers card & logo
+  const stat7mCard = document.querySelector('.stat-card');
+  if (stat7mCard) {
+    stat7mCard.id = 'stat-card-7m';
+    stat7mCard.style.cursor = 'pointer';
+    stat7mCard.setAttribute('title', 'Click 4 times to unlock Admin Panel');
+    stat7mCard.addEventListener('click', handle7MClick);
+  }
 
   window.addEventListener('scroll', () => {
     // On the homepage, keep Home active unless user scrolled down into in-page anchor

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhobiclean Executive Admin Dashboard</title>
+  <meta name="description" content="Dhobiclean Operations & Laundry Management Portal">
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- Top Glass Operations Header -->
+  <header class="admin-header">
+    <div class="admin-header-container">
+      <div class="admin-brand">
+        <div class="logo-icon-wrapper">
+          <svg class="logo-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="36" height="36" rx="10" fill="#0284c7" />
+            <path d="M12 9H18.5C23.1944 9 27 12.8056 27 17.5C27 22.1944 23.1944 26 18.5 26H12V9Z" fill="#38bdf8" fill-opacity="0.3"/>
+            <path d="M11 9.5C11 8.67157 11.6716 8 12.5 8H18C23.2467 8 27.5 12.2533 27.5 17.5C27.5 22.7467 23.2467 27 18 27H12.5C11.6716 27 11 26.3284 11 25.5V9.5Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="18" cy="17.5" r="4.5" stroke="white" stroke-width="2.2"/>
+          </svg>
+        </div>
+        <span class="brand-name white">Dhobic<span class="brand-highlight">lean</span> <span class="admin-badge">ADMIN HUB</span></span>
+      </div>
+
+      <div class="admin-header-right">
+        <div class="system-status-indicator">
+          <span class="status-pulse"></span>
+          <span>All 5 City Hubs Online</span>
+        </div>
+        <a href="index.html" class="btn-return-site">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 15px; height: 15px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Return to Site
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-main-wrapper">
+    <!-- Executive KPI Metrics Grid -->
+    <section class="admin-kpi-grid">
+      <!-- KPI 1 -->
+      <div class="admin-kpi-card glass-card-dark">
+        <div class="kpi-header">
+          <span class="kpi-title">Total Orders Today</span>
+          <div class="kpi-icon blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          </div>
+        </div>
+        <div class="kpi-value" id="kpi-total-orders">142</div>
+        <div class="kpi-trend positive">↑ +18.4% vs yesterday</div>
+      </div>
+
+      <!-- KPI 2 -->
+      <div class="admin-kpi-card glass-card-dark">
+        <div class="kpi-header">
+          <span class="kpi-title">Gross Revenue Today</span>
+          <div class="kpi-icon green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+        </div>
+        <div class="kpi-value" id="kpi-total-revenue">₹48,950</div>
+        <div class="kpi-trend positive">↑ ₹12.45L Monthly Run Rate</div>
+      </div>
+
+      <!-- KPI 3 -->
+      <div class="admin-kpi-card glass-card-dark">
+        <div class="kpi-header">
+          <span class="kpi-title">Active Fleet Drivers</span>
+          <div class="kpi-icon purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+        </div>
+        <div class="kpi-value" id="kpi-active-drivers">24 / 28</div>
+        <div class="kpi-trend neutral">🚚 18 Deliveries En-Route</div>
+      </div>
+
+      <!-- KPI 4 -->
+      <div class="admin-kpi-card glass-card-dark">
+        <div class="kpi-header">
+          <span class="kpi-title">Garments In Processing</span>
+          <div class="kpi-icon orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+          </div>
+        </div>
+        <div class="kpi-value" id="kpi-garments-count">1,480 pcs</div>
+        <div class="kpi-trend positive">⚡ 99.4% On-Time SLA</div>
+      </div>
+    </section>
+
+    <!-- Admin Navigation Tabs -->
+    <div class="admin-tabs-bar">
+      <button type="button" class="admin-tab-btn active" onclick="switchAdminTab('orders')">📦 Live Orders & Bookings</button>
+      <button type="button" class="admin-tab-btn" onclick="switchAdminTab('services')">🏷️ Services & Pricing</button>
+      <button type="button" class="admin-tab-btn" onclick="switchAdminTab('messages')">✉️ Customer Messages</button>
+      <button type="button" class="admin-tab-btn" onclick="switchAdminTab('drivers')">🚚 Fleet Dispatch</button>
+      <button type="button" class="admin-tab-btn" onclick="switchAdminTab('promos')">🎟️ Coupon Codes</button>
+    </div>
+
+    <!-- TAB 1: LIVE ORDERS & BOOKINGS -->
+    <section id="tab-orders" class="admin-tab-content active">
+      <div class="panel-card glass-card-dark">
+        <div class="panel-card-header">
+          <div>
+            <h2 class="panel-title">Customer Pickups & Orders Management</h2>
+            <p class="panel-subtitle">Manage incoming doorstep pickup bookings and update operational status in real-time.</p>
+          </div>
+          <div class="panel-actions">
+            <input type="text" id="order-search-input" placeholder="🔍 Search Customer or Order ID..." oninput="filterOrdersTable(this.value)">
+            <button type="button" class="btn-admin-action" onclick="openNewOrderModal()">+ New Manual Order</button>
+            <button type="button" class="btn-admin-action secondary" onclick="exportOrdersCSV()">📥 Export CSV</button>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Customer Name</th>
+                <th>Phone Number</th>
+                <th>Pickup Slot</th>
+                <th>Assigned Hub</th>
+                <th>Services & Items</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-orders-tbody">
+              <!-- Dynamically populated via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: SERVICES & PRICING -->
+    <section id="tab-services" class="admin-tab-content">
+      <div class="panel-card glass-card-dark">
+        <div class="panel-card-header">
+          <div>
+            <h2 class="panel-title">Laundry Services & Price Catalog</h2>
+            <p class="panel-subtitle">Update service pricing, unit metrics, and availability instantly across the customer website.</p>
+          </div>
+          <button type="button" class="btn-admin-action" onclick="addNewServicePrompt()">+ Add New Service</button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Service Name</th>
+                <th>Category</th>
+                <th>Base Rate (₹)</th>
+                <th>Unit Type</th>
+                <th>Est. Turnaround</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-services-tbody">
+              <!-- Dynamically populated via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: CUSTOMER MESSAGES -->
+    <section id="tab-messages" class="admin-tab-content">
+      <div class="panel-card glass-card-dark">
+        <div class="panel-card-header">
+          <div>
+            <h2 class="panel-title">Support Inquiries & Contact Messages</h2>
+            <p class="panel-subtitle">Review customer messages sent via the contact page.</p>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Date / Time</th>
+                <th>Customer Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Message Snippet</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-messages-tbody">
+              <!-- Dynamically populated via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: FLEET DISPATCH -->
+    <section id="tab-drivers" class="admin-tab-content">
+      <div class="panel-card glass-card-dark">
+        <div class="panel-card-header">
+          <div>
+            <h2 class="panel-title">Logistics & Valet Driver Fleet</h2>
+            <p class="panel-subtitle">Monitor pickup/delivery drivers, vehicle assignments, and real-time status.</p>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Valet ID</th>
+                <th>Driver Name</th>
+                <th>Assigned Zone Hub</th>
+                <th>Vehicle No</th>
+                <th>Assigned Pickups</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-drivers-tbody">
+              <!-- Dynamically populated via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: COUPON CODES & SYSTEM SETTINGS -->
+    <section id="tab-promos" class="admin-tab-content">
+      <div class="panel-card glass-card-dark">
+        <div class="panel-card-header">
+          <div>
+            <h2 class="panel-title">Discounts, Promo Codes & Operations Settings</h2>
+            <p class="panel-subtitle">Manage promotional codes, express delivery surcharges, and store operational switches.</p>
+          </div>
+          <button type="button" class="btn-admin-action" onclick="createPromoPrompt()">+ Create Promo Code</button>
+        </div>
+
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Promo Code</th>
+                <th>Discount %</th>
+                <th>Min Order (₹)</th>
+                <th>Usage Count</th>
+                <th>Expiry Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-promos-tbody">
+              <!-- Dynamically populated via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- New Order Modal -->
+  <div class="admin-modal" id="new-order-modal">
+    <div class="admin-modal-box glass-card-dark">
+      <div class="admin-modal-header">
+        <h3>Create New Manual Order</h3>
+        <button type="button" class="close-btn" onclick="closeAdminModal('new-order-modal')">✕</button>
+      </div>
+      <form onsubmit="handleManualOrderSubmit(event)">
+        <div class="admin-form-group">
+          <label>Customer Full Name</label>
+          <input type="text" id="manual-name" placeholder="e.g. Ramesh Kumar" required>
+        </div>
+        <div class="admin-form-group">
+          <label>Phone Number</label>
+          <input type="tel" id="manual-phone" placeholder="9876543210" required>
+        </div>
+        <div class="admin-form-group">
+          <label>Pickup Address</label>
+          <input type="text" id="manual-address" placeholder="Flat / Building Address" required>
+        </div>
+        <div class="admin-form-group">
+          <label>Hub Branch</label>
+          <select id="manual-hub">
+            <option value="Jubilee Hills Hub">Jubilee Hills Hub (Hyderabad)</option>
+            <option value="Indiranagar Store">Indiranagar Store (Bangalore)</option>
+            <option value="Bandra Care Hub">Bandra Care Hub (Mumbai)</option>
+            <option value="Connaught Place Center">Connaught Place Center (Delhi)</option>
+            <option value="Anna Nagar Hub">Anna Nagar Hub (Chennai)</option>
+          </select>
+        </div>
+        <div class="admin-form-group">
+          <label>Select Primary Service</label>
+          <select id="manual-service">
+            <option value="Wash & Iron (5 kg)">Wash & Iron (5 kg) - ₹300</option>
+            <option value="Dry Cleaning (3 pcs)">Dry Cleaning (3 pcs) - ₹360</option>
+            <option value="Wash & Fold (4 kg)">Wash & Fold (4 kg) - ₹200</option>
+            <option value="Shoe Cleaning (2 pairs)">Shoe Cleaning (2 pairs) - ₹398</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-admin-action" style="width: 100%; margin-top: 16px;">Create Order Now</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
