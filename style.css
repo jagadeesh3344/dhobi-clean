@@ -145,19 +145,19 @@ button, input, select {
   }
 }
 
-/* ----------------- Header / Navigation (Glassmorphism Aesthetic) ----------------- */
+/* ----------------- Header / Navigation (Deep Ultra Glassmorphism) ----------------- */
 .site-header {
   position: sticky;
   top: 14px;
   width: calc(100% - 32px);
   max-width: 1240px;
   margin: 10px auto 16px;
-  background: rgba(255, 255, 255, 0.65) !important;
-  backdrop-filter: blur(20px) saturate(190%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.75) !important;
+  background: rgba(255, 255, 255, 0.48) !important;
+  backdrop-filter: blur(40px) saturate(240%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(240%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
   border-radius: 9999px !important;
-  box-shadow: 0 12px 32px -8px rgba(2, 132, 199, 0.14), 0 4px 16px rgba(11, 26, 45, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 20px 48px -10px rgba(2, 132, 199, 0.18), 0 6px 20px rgba(11, 26, 45, 0.06), inset 0 1.5px 2px rgba(255, 255, 255, 1) !important;
   z-index: 1000;
   transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -1529,7 +1529,7 @@ a, button, input, select, textarea, .nav-link, .service-item-card {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Ultra-Crisp Frosted Glass Card System */
+/* Deep Ultra-Frosted Glass Card System */
 .glass-card,
 .feature-card,
 .stat-card,
@@ -1541,13 +1541,19 @@ a, button, input, select, textarea, .nav-link, .service-item-card {
 .about-hero-card,
 .services-hero-card,
 .blog-hero-card,
-.store-details-card {
-  background: rgba(255, 255, 255, 0.65) !important;
-  backdrop-filter: blur(28px) saturate(210%) !important;
-  -webkit-backdrop-filter: blur(28px) saturate(210%) !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
-  box-shadow: 0 16px 40px -10px rgba(2, 132, 199, 0.14), 0 4px 18px rgba(11, 26, 45, 0.05), inset 0 1px 1.5px rgba(255, 255, 255, 0.95) !important;
-  border-radius: 24px;
+.store-details-card,
+.booking-card,
+.modal-box,
+.card-header,
+.services-hero-card,
+.contact-channel-item,
+.channel-icon-circle {
+  background: rgba(255, 255, 255, 0.48) !important;
+  backdrop-filter: blur(40px) saturate(240%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(240%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 20px 50px -10px rgba(2, 132, 199, 0.18), 0 6px 20px rgba(11, 26, 45, 0.06), inset 0 1.5px 2px rgba(255, 255, 255, 1) !important;
+  border-radius: 26px;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
@@ -1556,16 +1562,16 @@ a, button, input, select, textarea, .nav-link, .service-item-card {
 .stat-card:hover,
 .service-item-card:hover,
 .blog-card:hover {
-  background: rgba(255, 255, 255, 0.88) !important;
-  transform: translateY(-4px) scale(1.01) !important;
-  box-shadow: 0 22px 50px -10px rgba(2, 132, 199, 0.22), 0 8px 24px rgba(11, 26, 45, 0.08), inset 0 1px 1px rgba(255, 255, 255, 1) !important;
-  border-color: rgba(56, 189, 248, 0.65) !important;
+  background: rgba(255, 255, 255, 0.78) !important;
+  transform: translateY(-5px) scale(1.015) !important;
+  box-shadow: 0 26px 60px -10px rgba(2, 132, 199, 0.28), 0 10px 30px rgba(11, 26, 45, 0.1), inset 0 1.5px 2px rgba(255, 255, 255, 1) !important;
+  border-color: rgba(56, 189, 248, 0.8) !important;
 }
 
 .glass-card-dark {
-  background: rgba(11, 26, 45, 0.85) !important;
-  backdrop-filter: blur(28px) saturate(210%) !important;
-  -webkit-backdrop-filter: blur(28px) saturate(210%) !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.18) !important;
-  box-shadow: 0 22px 50px -12px rgba(8, 20, 36, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.15) !important;
+  background: rgba(11, 26, 45, 0.76) !important;
+  backdrop-filter: blur(40px) saturate(240%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(240%) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.22) !important;
+  box-shadow: 0 26px 60px -12px rgba(8, 20, 36, 0.6), inset 0 1.5px 2px rgba(255, 255, 255, 0.2) !important;
 }
