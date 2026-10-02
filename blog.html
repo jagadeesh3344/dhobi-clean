@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Services - Dhobiclean</title>
-  <meta name="description" content="Explore Dhobiclean's full range of professional garment care: Wash & Fold, Wash & Iron, Premium Dry Cleaning, Steam Pressing, Shoe Spa, and Curtains & Bedding.">
+  <title>Blog - Dhobiclean Laundry Tips & Trends</title>
+  <meta name="description" content="Discover helpful laundry tips, fabric care advice, and eco-friendly garment cleaning insights from the Dhobiclean team.">
   <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="services.css">
+  <link rel="stylesheet" href="blog.css">
 </head>
-<body class="services-page">
+<body class="blog-page">
 
   <!-- Header / Navigation -->
   <header class="site-header">
@@ -36,8 +36,8 @@
         <ul class="nav-links">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="about.html" class="nav-link">About Us</a></li>
-          <li><a href="services.html" class="nav-link active">Services</a></li>
-          <li><a href="blog.html" class="nav-link">Blog</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="blog.html" class="nav-link active">Blog</a></li>
           <li><a href="#contact" class="nav-link">Contact Us</a></li>
         </ul>
       </nav>
@@ -49,136 +49,141 @@
     </div>
   </header>
 
-  <main class="services-main-wrapper">
+  <main class="blog-main-wrapper">
     <!-- Top Hero Banner Card -->
-    <section class="services-hero-section">
-      <div class="services-hero-card">
-        <div class="services-hero-text">
-          <div class="services-badge">
+    <section class="blog-hero-section">
+      <div class="blog-hero-card">
+        <div class="blog-hero-text">
+          <div class="blog-badge">
             <span class="badge-dot"></span>
-            ALL-IN-ONE SERVICES
+            OUR BLOG
           </div>
-          <h1 class="services-hero-heading">
-            Complete Laundry<br>
-            Solutions for<br>
-            <span class="highlight-blue">Every Need</span>
+          <h1 class="blog-hero-heading">
+            Laundry Tips,<br>
+            <span class="highlight-blue">Trends</span> & More
           </h1>
-          <p class="services-hero-desc">
-            From everyday casuals to precious designer wear, we offer a wide range of services ensuring your clothes look and feel their best.
+          <p class="blog-hero-desc">
+            Discover helpful tips, expert advice, and the latest trends to keep your clothes looking fresh and brand new.
           </p>
         </div>
-        <div class="services-hero-visual">
-          <div class="services-hero-image-card">
-            <img src="assets/services-hero.jpg" alt="Neatly folded pastel towels, detergents, and soap bubbles" class="services-hero-img">
-            <!-- Floating bubble accents -->
-            <div class="bubble-accent bubble-acc-1"></div>
-            <div class="bubble-accent bubble-acc-2"></div>
+        <div class="blog-hero-visual">
+          <div class="blog-hero-image-card">
+            <img src="assets/blog-hero.jpg" alt="Dhobiclean blog fresh laundry basket, indoor plant and linen spray" class="blog-hero-img">
+            <div class="bubble-accent bubble-blog-1"></div>
+            <div class="bubble-accent bubble-blog-2"></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Filter Category Tabs -->
-    <section class="services-filter-section">
-      <div class="filter-tabs-wrapper" role="tablist" aria-label="Service categories">
-        <button type="button" class="filter-tab-btn active" data-filter="all" role="tab" aria-selected="true">All Services</button>
-        <button type="button" class="filter-tab-btn" data-filter="laundry" role="tab" aria-selected="false">Laundry</button>
-        <button type="button" class="filter-tab-btn" data-filter="dry-cleaning" role="tab" aria-selected="false">Dry Cleaning</button>
-        <button type="button" class="filter-tab-btn" data-filter="special-care" role="tab" aria-selected="false">Special Care</button>
+    <!-- Search Bar Section -->
+    <section class="blog-search-section">
+      <div class="blog-search-bar">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" id="blog-search-input" placeholder="Search blog articles..." aria-label="Search blog articles">
       </div>
     </section>
 
-    <!-- Services Grid (6 Cards) -->
-    <section class="services-cards-section">
-      <div class="services-cards-grid" id="services-grid">
-        
-        <!-- Card 1: Wash & Fold -->
-        <div class="service-card-item" data-category="laundry">
-          <div class="service-thumb-container">
-            <img src="assets/service-wash-fold.jpg" alt="Wash and Fold Service" class="service-thumb-img">
-          </div>
-          <div class="service-card-body">
-            <h3 class="service-card-title">Wash & Fold</h3>
-            <div class="service-card-price">₹50 / kg</div>
-            <p class="service-card-desc">Daily wear clothes washed and neatly folded for you.</p>
-            <a href="index.html#booking-section" class="btn-card-action">Book Now</a>
-          </div>
-        </div>
+    <!-- Blog Posts Grid (6 Cards, 2 Columns) -->
+    <section class="blog-grid-section">
+      <div class="blog-cards-grid" id="blog-cards-grid">
 
-        <!-- Card 2: Wash & Iron -->
-        <div class="service-card-item" data-category="laundry">
-          <div class="service-thumb-container">
-            <img src="assets/service-wash-iron.jpg" alt="Wash and Iron Service" class="service-thumb-img">
+        <!-- Card 1 -->
+        <article class="blog-card-item">
+          <div class="blog-thumb-wrapper">
+            <img src="assets/blog-1.jpg" alt="How to Keep Your Clothes Fresh for Longer" class="blog-thumb-img">
           </div>
-          <div class="service-card-body">
-            <h3 class="service-card-title">Wash & Iron</h3>
-            <div class="service-card-price">₹60 / kg</div>
-            <p class="service-card-desc">Clean, fresh, and crisp professional pressing.</p>
-            <a href="index.html#booking-section" class="btn-card-action">Book Now</a>
+          <div class="blog-card-content">
+            <div class="blog-tag-badge">Everyday Care</div>
+            <h3 class="blog-card-title">How to Keep Your Clothes Fresh for Longer</h3>
+            <div class="blog-meta">Aug 12, 2024 • 5 min read</div>
+            <a href="#" class="blog-read-more">Read More →</a>
           </div>
-        </div>
+        </article>
 
-        <!-- Card 3: Dry Cleaning -->
-        <div class="service-card-item" data-category="dry-cleaning">
-          <div class="service-thumb-container">
-            <img src="assets/service-dry-cleaning.jpg" alt="Dry Cleaning Service" class="service-thumb-img">
+        <!-- Card 2 -->
+        <article class="blog-card-item">
+          <div class="blog-thumb-wrapper">
+            <img src="assets/blog-2.jpg" alt="A Complete Guide to Dry Cleaning" class="blog-thumb-img">
           </div>
-          <div class="service-card-body">
-            <h3 class="service-card-title">Dry Cleaning</h3>
-            <div class="service-card-price">₹120 / pc</div>
-            <p class="service-card-desc">Special care for delicate and premium fabrics.</p>
-            <a href="index.html#booking-section" class="btn-card-action">Book Now</a>
+          <div class="blog-card-content">
+            <div class="blog-tag-badge">Fabric Guide</div>
+            <h3 class="blog-card-title">A Complete Guide to Dry Cleaning</h3>
+            <div class="blog-meta">Aug 8, 2024 • 4 min read</div>
+            <a href="#" class="blog-read-more">Read More →</a>
           </div>
-        </div>
+        </article>
 
-        <!-- Card 4: Steam Iron -->
-        <div class="service-card-item" data-category="special-care">
-          <div class="service-thumb-container">
-            <img src="assets/service-steam-iron.jpg" alt="Steam Iron Service" class="service-thumb-img">
+        <!-- Card 3 -->
+        <article class="blog-card-item">
+          <div class="blog-thumb-wrapper">
+            <img src="assets/blog-3.jpg" alt="Eco-Friendly Laundry Tips for a Greener Tomorrow" class="blog-thumb-img">
           </div>
-          <div class="service-card-body">
-            <h3 class="service-card-title">Steam Iron</h3>
-            <div class="service-card-price">₹20 / pc</div>
-            <p class="service-card-desc">Wrinkle-free finish with steam pressing.</p>
-            <a href="index.html#booking-section" class="btn-card-action">Book Now</a>
+          <div class="blog-card-content">
+            <div class="blog-tag-badge">Sustainable Living</div>
+            <h3 class="blog-card-title">Eco-Friendly Laundry Tips for a Greener Tomorrow</h3>
+            <div class="blog-meta">Aug 3, 2024 • 6 min read</div>
+            <a href="#" class="blog-read-more">Read More →</a>
           </div>
-        </div>
+        </article>
 
-        <!-- Card 5: Shoe Cleaning -->
-        <div class="service-card-item" data-category="special-care">
-          <div class="service-thumb-container">
-            <img src="assets/service-shoe-cleaning.jpg" alt="Shoe Cleaning Service" class="service-thumb-img">
+        <!-- Card 4 -->
+        <article class="blog-card-item">
+          <div class="blog-thumb-wrapper">
+            <img src="assets/blog-4.jpg" alt="How Often Should You Wash Bedding and Curtains?" class="blog-thumb-img">
           </div>
-          <div class="service-card-body">
-            <h3 class="service-card-title">Shoe Cleaning</h3>
-            <div class="service-card-price">₹199 / pair</div>
-            <p class="service-card-desc">Deep cleaning for all shoe types.</p>
-            <a href="index.html#booking-section" class="btn-card-action">Book Now</a>
+          <div class="blog-card-content">
+            <div class="blog-tag-badge">Home & Care</div>
+            <h3 class="blog-card-title">How Often Should You Wash Bedding and Curtains?</h3>
+            <div class="blog-meta">Jul 28, 2024 • 5 min read</div>
+            <a href="#" class="blog-read-more">Read More →</a>
           </div>
-        </div>
+        </article>
 
-        <!-- Card 6: Curtains & Bedding -->
-        <div class="service-card-item" data-category="special-care">
-          <div class="service-thumb-container">
-            <img src="assets/service-curtains-bedding.jpg" alt="Curtains and Bedding Service" class="service-thumb-img">
+        <!-- Card 5 -->
+        <article class="blog-card-item">
+          <div class="blog-thumb-wrapper">
+            <img src="assets/blog-5.jpg" alt="Tips to Remove Tough Stains at Home" class="blog-thumb-img">
           </div>
-          <div class="service-card-body">
-            <h3 class="service-card-title">Curtains & Bedding</h3>
-            <div class="service-card-price">₹150 / pc</div>
-            <p class="service-card-desc">Fresh and hygienic home linens.</p>
-            <a href="index.html#booking-section" class="btn-card-action">Book Now</a>
+          <div class="blog-card-content">
+            <div class="blog-tag-badge">Stain Removal</div>
+            <h3 class="blog-card-title">Tips to Remove Tough Stains at Home</h3>
+            <div class="blog-meta">Jul 21, 2024 • 4 min read</div>
+            <a href="#" class="blog-read-more">Read More →</a>
           </div>
-        </div>
+        </article>
 
+        <!-- Card 6 -->
+        <article class="blog-card-item">
+          <div class="blog-thumb-wrapper">
+            <img src="assets/blog-6.jpg" alt="The Future of Laundry: Smarter, Simpler & Greener" class="blog-thumb-img">
+          </div>
+          <div class="blog-card-content">
+            <div class="blog-tag-badge">Care & Lifestyle</div>
+            <h3 class="blog-card-title">The Future of Laundry: Smarter, Simpler & Greener</h3>
+            <div class="blog-meta">Jul 15, 2024 • 5 min read</div>
+            <a href="#" class="blog-read-more">Read More →</a>
+          </div>
+        </article>
+
+      </div>
+      <div id="no-search-results" class="no-results hidden">
+        No articles found matching your search.
       </div>
     </section>
 
-    <!-- Bottom Help Banner Card -->
-    <section class="services-help-section">
-      <div class="services-help-card">
-        <h2 class="services-help-title">Not Sure Which Service You Need?</h2>
-        <p class="services-help-desc">Our laundry experts will help you choose the best care for your garments.</p>
-        <a href="#contact" class="btn-primary help-btn">Contact Us</a>
+    <!-- Stay Updated Newsletter Card -->
+    <section class="blog-newsletter-section">
+      <div class="blog-newsletter-card">
+        <h2 class="blog-newsletter-title">Stay Updated</h2>
+        <p class="blog-newsletter-desc">Subscribe to our newsletter for the latest tips, tricks, and special discounts.</p>
+        <form class="blog-newsletter-form" onsubmit="handleBlogNewsletter(event)">
+          <input type="email" placeholder="Enter your email address" required aria-label="Enter your email for blog updates">
+          <button type="submit" class="btn-subscribe">Subscribe</button>
+        </form>
       </div>
     </section>
   </main>
@@ -228,8 +233,6 @@
             <li><a href="services.html">Our Services</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="index.html#booking-section">Schedule a Pickup</a></li>
-            <li><a href="#">Pricing Guide</a></li>
-            <li><a href="#">Store Locator</a></li>
           </ul>
         </div>
 
@@ -292,6 +295,6 @@
     </div>
   </footer>
 
-  <script src="services.js"></script>
+  <script src="blog.js"></script>
 </body>
 </html>
