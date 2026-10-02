@@ -14,11 +14,13 @@ class FastHTTPRequestHandler(SimpleHTTPRequestHandler):
     protocol_version = "HTTP/1.1"
 
     def end_headers(self):
-        # Enable caching headers for ultra-fast browser rendering
-        if self.path.endswith(('.jpg', '.jpeg', '.png', '.webp', '.svg', '.gif', '.css', '.js', '.woff2')):
+        # Images can cache, but CSS/JS/HTML must never cache during development
+        if self.path.endswith(('.jpg', '.jpeg', '.png', '.webp', '.svg', '.gif', '.woff2')):
             self.send_header('Cache-Control', 'public, max-age=86400')
         else:
-            self.send_header('Cache-Control', 'no-cache')
+            self.send_header('Cache-Control', 'no-cache, no-store, must-revalidate')
+            self.send_header('Pragma', 'no-cache')
+            self.send_header('Expires', '0')
         self.send_header('Access-Control-Allow-Origin', '*')
         super().end_headers()
 
