@@ -105,6 +105,7 @@
       <button type="button" class="admin-tab-btn" onclick="switchAdminTab('messages')">✉️ Customer Messages</button>
       <button type="button" class="admin-tab-btn" onclick="switchAdminTab('drivers')">🚚 Fleet Dispatch</button>
       <button type="button" class="admin-tab-btn" onclick="switchAdminTab('promos')">🎟️ Coupon Codes</button>
+      <button type="button" class="admin-tab-btn" onclick="switchAdminTab('settings')">⚙️ Security & Credentials</button>
     </div>
 
     <!-- TAB 1: LIVE ORDERS & BOOKINGS -->
@@ -268,6 +269,46 @@
           </table>
         </div>
       </div>
+    <!-- TAB 6: SECURITY & CREDENTIALS -->
+    <section id="tab-settings" class="admin-tab-content">
+      <div class="panel-card glass-card-dark" style="max-width: 580px; margin: 0 auto;">
+        <div class="panel-card-header">
+          <div>
+            <h2 class="panel-title">🔐 Executive Security Settings</h2>
+            <p class="panel-subtitle">Update admin login credentials. Changes are saved securely in browser storage.</p>
+          </div>
+        </div>
+
+        <form id="change-credentials-form" onsubmit="handleChangeCredentialsSubmit(event)" style="margin-top: 10px;">
+          <div id="settings-status-msg" style="display: none; padding: 12px; border-radius: 10px; font-size: 13px; font-weight: 700; margin-bottom: 18px;"></div>
+          
+          <div class="admin-form-group">
+            <label style="color: #cbd5e1;">Current Admin Password</label>
+            <input type="password" id="settings-current-pass" placeholder="Enter current password" required style="background: rgba(15, 23, 42, 0.85); color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+          </div>
+
+          <hr style="border: 0; border-top: 1px solid rgba(255, 255, 255, 0.12); margin: 20px 0;">
+
+          <div class="admin-form-group">
+            <label style="color: #cbd5e1;">New Admin Username</label>
+            <input type="text" id="settings-new-user" placeholder="Enter new username" required style="background: rgba(15, 23, 42, 0.85); color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+          </div>
+
+          <div class="admin-form-group">
+            <label style="color: #cbd5e1;">New Admin Password</label>
+            <input type="password" id="settings-new-pass" placeholder="Enter new password (min 4 chars)" required style="background: rgba(15, 23, 42, 0.85); color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+          </div>
+
+          <div class="admin-form-group">
+            <label style="color: #cbd5e1;">Confirm New Password</label>
+            <input type="password" id="settings-confirm-pass" placeholder="Re-enter new password" required style="background: rgba(15, 23, 42, 0.85); color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+          </div>
+
+          <button type="submit" class="btn-admin-action" style="margin-top: 16px; width: 100%; padding: 13px; font-size: 14px;">
+            💾 Update Admin Credentials
+          </button>
+        </form>
+      </div>
     </section>
   </main>
 
@@ -318,7 +359,7 @@
   <!-- Admin Authentication Login Modal -->
   <div id="admin-login-modal" class="admin-modal show" style="backdrop-filter: blur(25px); background: rgba(3, 7, 18, 0.92); z-index: 99999;">
     <div class="admin-modal-box glass-card-dark" style="max-width: 440px; text-align: center; border: 1.5px solid rgba(56, 189, 248, 0.4); box-shadow: 0 0 50px rgba(2, 132, 199, 0.3);">
-      <div style="margin-bottom: 22px;">
+      <div style="margin-bottom: 24px;">
         <div class="logo-icon-wrapper" style="width: 56px; height: 56px; margin: 0 auto 14px;">
           <svg class="logo-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="36" height="36" rx="10" fill="#0284c7" />
@@ -328,13 +369,7 @@
           </svg>
         </div>
         <h2 style="font-size: 23px; font-weight: 800; color: #ffffff; margin-bottom: 6px;">Executive Admin Portal</h2>
-        <p style="font-size: 13px; color: #cbd5e1;">Please enter executive credentials to access operations management.</p>
-      </div>
-
-      <div style="background: rgba(14, 165, 233, 0.14); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 14px; padding: 12px 16px; font-size: 12.5px; color: #38bdf8; font-weight: 700; margin-bottom: 22px; text-align: left;">
-        🔑 <strong>Default Admin Credentials:</strong><br>
-        • Username: <code style="color: #ffffff; background: rgba(0,0,0,0.4); padding: 2px 7px; border-radius: 4px;">admin</code><br>
-        • Password: <code style="color: #ffffff; background: rgba(0,0,0,0.4); padding: 2px 7px; border-radius: 4px;">admin123</code>
+        <p style="font-size: 13.5px; color: #cbd5e1;">Please enter admin credentials to access management.</p>
       </div>
 
       <form id="admin-login-form" onsubmit="handleAdminLogin(event)">
@@ -343,13 +378,13 @@
         </div>
         <div class="admin-form-group" style="text-align: left;">
           <label style="color: #cbd5e1;">Admin Username</label>
-          <input type="text" id="admin-username" placeholder="Username (e.g. admin)" required value="admin" style="background: rgba(15, 23, 42, 0.85); color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+          <input type="text" id="admin-username" placeholder="Enter username" required value="" style="background: rgba(15, 23, 42, 0.85); color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
         </div>
         <div class="admin-form-group" style="text-align: left;">
           <label style="color: #cbd5e1;">Admin Password</label>
-          <input type="password" id="admin-password" placeholder="Password (e.g. admin123)" required value="admin123" style="background: rgba(15, 23, 42, 0.85); color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
+          <input type="password" id="admin-password" placeholder="Enter password" required value="" style="background: rgba(15, 23, 42, 0.85); color: #ffffff; border-color: rgba(255, 255, 255, 0.25);">
         </div>
-        <button type="submit" class="btn-admin-action" style="width: 100%; margin-top: 16px; padding: 13px; font-size: 14px; letter-spacing: 0.04em;">
+        <button type="submit" class="btn-admin-action" style="width: 100%; margin-top: 18px; padding: 13px; font-size: 14px; letter-spacing: 0.04em;">
           🔓 UNLOCK ADMIN DASHBOARD
         </button>
       </form>
@@ -359,4 +394,5 @@
   <script src="admin.js"></script>
 </body>
 </html>
+
 

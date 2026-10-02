@@ -128,6 +128,24 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
+ * Retrieve persistent Admin Credentials from LocalStorage (or fallback defaults)
+ */
+function getAdminCredentials() {
+  try {
+    const stored = localStorage.getItem('dhobi_admin_creds');
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      if (parsed && parsed.username && parsed.password) {
+        return parsed;
+      }
+    }
+  } catch (err) {
+    console.warn('Credentials read error:', err);
+  }
+  return { username: 'admin', password: 'admin123' };
+}
+
+/**
  * Check Admin Authentication Status
  */
 function checkAdminAuth() {
@@ -154,20 +172,89 @@ function checkAdminAuth() {
 }
 
 /**
- * Handle Admin Login Submission
+ * Handle Admin Login Submission against persistent credentials
  */
 function handleAdminLogin(e) {
   e.preventDefault();
   const user = document.getElementById('admin-username').value.trim();
   const pass = document.getElementById('admin-password').value.trim();
   const errorMsg = document.getElementById('login-error-msg');
+  const activeCreds = getAdminCredentials();
 
-  if (user === 'admin' && pass === 'admin123') {
+  if (user === activeCreds.username && pass === activeCreds.password) {
     sessionStorage.setItem('dhobi_admin_auth', 'true');
     if (errorMsg) errorMsg.style.display = 'none';
     checkAdminAuth();
   } else {
-    if (errorMsg) errorMsg.style.display = 'block';
+    if (errorMsg) {
+      errorMsg.textContent = '❌ Invalid Username or Password!';
+      errorMsg.style.display = 'block';
+    }
+  }
+}
+
+/**
+ * Handle Changing Admin Username & Password
+ */
+function handleChangeCredentialsSubmit(e) {
+  e.preventDefault();
+
+  const currentPass = document.getElementById('settings-current-pass').value.trim();
+  const newUser = document.getElementById('settings-new-user').value.trim();
+  const newPass = document.getElementById('settings-new-pass').value.trim();
+  const confirmPass = document.getElementById('settings-confirm-pass').value.trim();
+  const statusMsg = document.getElementById('settings-status-msg');
+
+  const activeCreds = getAdminCredentials();
+
+  // Verify current password
+  if (currentPass !== activeCreds.password) {
+    showSettingsStatus('❌ Incorrect Current Password. Access denied.', 'error');
+    return;
+  }
+
+  // Verify password confirmation
+  if (newPass !== confirmPass) {
+    showSettingsStatus('❌ New Password and Confirm Password do not match!', 'error');
+    return;
+  }
+
+  if (newPass.length < 4) {
+    showSettingsStatus('❌ New Password must be at least 4 characters long!', 'error');
+    return;
+  }
+
+  // Save new credentials to LocalStorage
+  const updatedCreds = { username: newUser, password: newPass };
+  try {
+    localStorage.setItem('dhobi_admin_creds', JSON.stringify(updatedCreds));
+    showSettingsStatus(`✅ Credentials updated successfully! New Username: "${newUser}". Use your new password on next login.`, 'success');
+
+    // Reset inputs
+    document.getElementById('settings-current-pass').value = '';
+    document.getElementById('settings-new-user').value = '';
+    document.getElementById('settings-new-pass').value = '';
+    document.getElementById('settings-confirm-pass').value = '';
+  } catch (err) {
+    showSettingsStatus('❌ Failed to save new credentials in storage.', 'error');
+  }
+}
+
+function showSettingsStatus(msg, type) {
+  const statusMsg = document.getElementById('settings-status-msg');
+  if (!statusMsg) return;
+
+  statusMsg.textContent = msg;
+  statusMsg.style.display = 'block';
+
+  if (type === 'error') {
+    statusMsg.style.background = 'rgba(239, 68, 68, 0.18)';
+    statusMsg.style.border = '1px solid rgba(239, 68, 68, 0.4)';
+    statusMsg.style.color = '#f87171';
+  } else {
+    statusMsg.style.background = 'rgba(16, 185, 129, 0.18)';
+    statusMsg.style.border = '1px solid rgba(52, 211, 153, 0.4)';
+    statusMsg.style.color = '#34d399';
   }
 }
 
@@ -181,9 +268,12 @@ function handleAdminLogout() {
   }
 }
 
+window.getAdminCredentials = getAdminCredentials;
 window.checkAdminAuth = checkAdminAuth;
 window.handleAdminLogin = handleAdminLogin;
+window.handleChangeCredentialsSubmit = handleChangeCredentialsSubmit;
 window.handleAdminLogout = handleAdminLogout;
+
 
 
 /**
