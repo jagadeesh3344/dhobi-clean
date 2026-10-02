@@ -198,6 +198,24 @@ function handleContactMessage(event) {
   const phone = document.getElementById('contact-phone').value.trim();
   const message = document.getElementById('contact-message').value.trim();
 
+  const newMsg = {
+    time: `Today ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`,
+    name,
+    email,
+    phone,
+    snippet: message,
+    status: 'New'
+  };
+
+  try {
+    const msgs = JSON.parse(localStorage.getItem('dhobi_messages') || '[]');
+    msgs.unshift(newMsg);
+    localStorage.setItem('dhobi_messages', JSON.stringify(msgs));
+    window.dispatchEvent(new Event('storage'));
+  } catch (err) {
+    console.warn('LocalStorage save error:', err);
+  }
+
   alert(`Thank you, ${name}! Your message has been sent successfully. Our team will contact you at ${phone || email} within 15 minutes.`);
 
   event.target.reset();

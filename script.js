@@ -103,6 +103,32 @@ function handleBookingSubmit(event) {
     }
   }
 
+  // Store order persistently in localStorage for Admin Panel
+  const orderId = `#DHB-${Math.floor(100000 + Math.random() * 900000)}`;
+  const newOrder = {
+    id: orderId,
+    name: name,
+    phone: phone,
+    address: address,
+    slot: `${day}, ${time}`,
+    hub: store,
+    services: selectedItems.length > 0 ? selectedItems.join(', ') : 'General Laundry Pickup',
+    total: estimatedTotal > 0 ? estimatedTotal : 150,
+    status: 'pending',
+    timestamp: new Date().toISOString()
+  };
+
+  try {
+    const existingOrders = JSON.parse(localStorage.getItem('dhobi_orders') || '[]');
+    existingOrders.unshift(newOrder);
+    localStorage.setItem('dhobi_orders', JSON.stringify(existingOrders));
+    
+    // Broadcast storage event for open admin panel tabs
+    window.dispatchEvent(new Event('storage'));
+  } catch (err) {
+    console.warn('LocalStorage save error:', err);
+  }
+
   const modal = document.getElementById('confirmation-modal');
   const modalUserName = document.getElementById('modal-user-name');
   const modalDetails = document.getElementById('modal-details');
@@ -129,6 +155,7 @@ function handleBookingSubmit(event) {
   }
 
   modalDetails.innerHTML = `
+    <div style="font-weight: 800; color: #38bdf8; margin-bottom: 6px;">Order ID: ${orderId}</div>
     <div><strong>Pickup Slot:</strong> ${day}, ${time}</div>
     <div><strong>Assigned Store:</strong> ${store}</div>
     <div><strong>Phone:</strong> ${phone}</div>
