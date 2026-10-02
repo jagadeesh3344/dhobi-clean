@@ -129,6 +129,11 @@ function handleBookingSubmit(event) {
     console.warn('LocalStorage save error:', err);
   }
 
+  // Save last order text for WhatsApp dispatch
+  lastCustomerPhone = phone;
+  const servicesFormatted = selectedItems.length > 0 ? selectedItems.join('\n- ') : 'General Laundry Care';
+  lastWhatsAppText = `🧼 *DHOBICLEAN LAUNDRY PICKUP ORDER*\n----------------------------------------\n🆔 *Order ID:* ${orderId}\n👤 *Customer Name:* ${name}\n📞 *Phone:* ${phone}\n📍 *Address:* ${address}\n📅 *Pickup Slot:* ${day}, ${time}\n🏬 *Assigned Hub:* ${store}\n----------------------------------------\n🛍️ *Selected Services:*\n- ${servicesFormatted}\n----------------------------------------\n💰 *Estimated Total:* ₹${estimatedTotal.toLocaleString('en-IN')}\n----------------------------------------\nThank you for choosing Dhobiclean! Our valet driver will arrive during your pickup slot.`;
+
   const modal = document.getElementById('confirmation-modal');
   const modalUserName = document.getElementById('modal-user-name');
   const modalDetails = document.getElementById('modal-details');
@@ -165,7 +170,34 @@ function handleBookingSubmit(event) {
 
   modal.classList.add('show');
   modal.setAttribute('aria-hidden', 'false');
+
+  // Auto-prompt WhatsApp send after 800ms
+  setTimeout(() => {
+    if (confirm('📱 Would you like to send order details directly to your WhatsApp?')) {
+      sendWhatsAppOrder();
+    }
+  }, 800);
 }
+
+let lastWhatsAppText = '';
+let lastCustomerPhone = '';
+
+/**
+ * Open WhatsApp pre-filled with customer order details
+ */
+function sendWhatsAppOrder() {
+  if (!lastWhatsAppText) {
+    alert('No active order found to send to WhatsApp.');
+    return;
+  }
+  const cleanPhone = lastCustomerPhone.replace(/\D/g, '');
+  const targetPhone = cleanPhone.length === 10 ? `91${cleanPhone}` : cleanPhone;
+  const encodedText = encodeURIComponent(lastWhatsAppText);
+  const waUrl = `https://api.whatsapp.com/send?phone=${targetPhone}&text=${encodedText}`;
+  window.open(waUrl, '_blank');
+}
+
+window.sendWhatsAppOrder = sendWhatsAppOrder;
 
 /**
  * Close confirmation modal
