@@ -146,21 +146,21 @@ function renderOrdersTable(dataToRender = ordersData) {
   if (!tbody) return;
 
   if (dataToRender.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="9" style="text-align: center; color: #94a3b8; padding: 24px;">No orders found. Click "+ New Manual Order" to create one.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="9" style="text-align: center; color: #94a3b8; padding: 32px; font-weight: 600;">No live orders found. Click "+ New Manual Order" to dispatch one.</td></tr>`;
     return;
   }
 
   tbody.innerHTML = dataToRender.map((ord, idx) => `
     <tr>
       <td class="order-id-badge">${ord.id}</td>
-      <td><strong>${ord.name}</strong><br><span style="font-size: 11px; color: #94a3b8;">${ord.address || 'Address provided'}</span></td>
-      <td>${ord.phone}</td>
-      <td>${ord.slot}</td>
-      <td><span class="store-type-tag" style="font-size: 10px;">${ord.hub}</span></td>
-      <td><span style="font-size: 12px; color: #cbd5e1;">${ord.services}</span></td>
-      <td><strong style="color: #4ade80;">₹${ord.total}</strong></td>
+      <td><strong style="color: #ffffff; font-size: 14px;">${ord.name}</strong><br><span style="font-size: 11.5px; color: #94a3b8;">${ord.address || 'Address provided'}</span></td>
+      <td><span style="font-family: monospace; color: #cbd5e1;">${ord.phone}</span></td>
+      <td><span style="font-size: 12.5px; color: #e2e8f0;">${ord.slot}</span></td>
+      <td><span class="store-type-tag" style="font-size: 11px;">${ord.hub}</span></td>
+      <td><span style="font-size: 12.5px; color: #cbd5e1;">${ord.services}</span></td>
+      <td><strong style="color: #34d399; font-size: 14.5px;">₹${ord.total}</strong></td>
       <td>
-        <select onchange="updateOrderStatus(${idx}, this.value)" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); color: white; border-radius: 8px; padding: 5px 8px; font-size: 11.5px; font-weight: 700;">
+        <select class="table-status-select" onchange="updateOrderStatus(${idx}, this.value)">
           <option value="pending" ${ord.status === 'pending' ? 'selected' : ''}>⏳ Pending Pickup</option>
           <option value="in-wash" ${ord.status === 'in-wash' ? 'selected' : ''}>🧼 In Wash</option>
           <option value="delivery" ${ord.status === 'delivery' ? 'selected' : ''}>🚚 Out For Delivery</option>
@@ -168,7 +168,7 @@ function renderOrdersTable(dataToRender = ordersData) {
         </select>
       </td>
       <td>
-        <button onclick="deleteOrder(${idx})" style="background: rgba(239,68,68,0.2); color: #f87171; border: 1px solid rgba(239,68,68,0.4); padding: 5px 10px; border-radius: 8px; cursor: pointer; font-size: 11.5px; font-weight: 700;">Cancel</button>
+        <button onclick="deleteOrder(${idx})" style="background: rgba(239, 68, 68, 0.18); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); padding: 6px 14px; border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 700; transition: all 0.2s ease;">Cancel</button>
       </td>
     </tr>
   `).join('');
@@ -209,16 +209,16 @@ function renderServicesTable() {
 
   tbody.innerHTML = servicesData.map((s, idx) => `
     <tr>
-      <td><strong>${s.name}</strong></td>
-      <td><span style="color: #38bdf8;">${s.category}</span></td>
+      <td><strong style="color: #ffffff; font-size: 14px;">${s.name}</strong></td>
+      <td><span style="color: #38bdf8; font-weight: 700;">${s.category}</span></td>
       <td>
-        <input type="number" value="${s.rate}" onchange="updateServiceRate(${idx}, this.value)" style="width: 75px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); color: white; padding: 4px 8px; border-radius: 6px; font-weight: 700;">
+        <input type="number" value="${s.rate}" onchange="updateServiceRate(${idx}, this.value)" style="width: 80px; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; padding: 5px 10px; border-radius: 8px; font-weight: 800; font-size: 13px;">
       </td>
-      <td>${s.unit}</td>
-      <td>${s.time}</td>
+      <td><span style="color: #94a3b8;">${s.unit}</span></td>
+      <td><span style="color: #e2e8f0;">${s.time}</span></td>
       <td><span class="status-pill completed">${s.status}</span></td>
       <td>
-        <button onclick="alert('Price saved successfully!')" style="background: #0284c7; color: white; border: none; padding: 5px 12px; border-radius: 6px; cursor: pointer; font-size: 11.5px; font-weight: 700;">Save</button>
+        <button onclick="alert('Price saved successfully!')" class="btn-admin-action" style="padding: 6px 14px; font-size: 12px;">Save</button>
       </td>
     </tr>
   `).join('');
@@ -245,20 +245,20 @@ function renderMessagesTable() {
   if (!tbody) return;
 
   if (messagesData.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: #94a3b8; padding: 24px;">No support messages yet.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: #94a3b8; padding: 32px; font-weight: 600;">No support messages yet.</td></tr>`;
     return;
   }
 
   tbody.innerHTML = messagesData.map((m) => `
     <tr>
-      <td style="color: #94a3b8; font-size: 12px;">${m.time}</td>
-      <td><strong>${m.name}</strong></td>
-      <td>${m.email}</td>
-      <td>${m.phone}</td>
-      <td><em>"${m.snippet}"</em></td>
+      <td style="color: #94a3b8; font-size: 12px; font-weight: 600;">${m.time}</td>
+      <td><strong style="color: #ffffff;">${m.name}</strong></td>
+      <td><span style="color: #38bdf8;">${m.email}</span></td>
+      <td><span style="font-family: monospace;">${m.phone}</span></td>
+      <td><em style="color: #cbd5e1;">"${m.snippet}"</em></td>
       <td><span class="status-pill ${m.status === 'New' ? 'pending' : 'completed'}">${m.status}</span></td>
       <td>
-        <a href="mailto:${m.email}" style="background: rgba(56,189,248,0.2); color: #38bdf8; text-decoration: none; padding: 5px 12px; border-radius: 6px; font-size: 11.5px; font-weight: 700;">Reply</a>
+        <a href="mailto:${m.email}" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); text-decoration: none; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 800; display: inline-block;">Reply</a>
       </td>
     </tr>
   `).join('');
@@ -274,13 +274,13 @@ function renderDriversTable() {
   tbody.innerHTML = driversData.map(d => `
     <tr>
       <td class="order-id-badge">${d.id}</td>
-      <td><strong>${d.name}</strong></td>
-      <td>${d.hub}</td>
-      <td><code>${d.vehicle}</code></td>
-      <td><strong>${d.activeJobs} Pickups</strong></td>
+      <td><strong style="color: #ffffff;">${d.name}</strong></td>
+      <td><span class="store-type-tag">${d.hub}</span></td>
+      <td><code style="color: #38bdf8; background: rgba(255,255,255,0.06); padding: 4px 8px; border-radius: 6px;">${d.vehicle}</code></td>
+      <td><strong style="color: #34d399;">${d.activeJobs} Pickups</strong></td>
       <td><span class="status-pill ${d.status === 'Available' ? 'completed' : 'in-wash'}">${d.status}</span></td>
       <td>
-        <button onclick="alert('Dispatching SMS alert to driver ${d.name}')" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 6px; cursor: pointer; font-size: 11px;">Ping Driver</button>
+        <button onclick="alert('Dispatching SMS alert to driver ${d.name}')" class="btn-admin-action secondary" style="padding: 5px 12px; font-size: 11.5px;">Ping Driver</button>
       </td>
     </tr>
   `).join('');
@@ -295,17 +295,18 @@ function renderPromosTable() {
 
   tbody.innerHTML = promosData.map((p, idx) => `
     <tr>
-      <td><strong style="color: #f43f5e; letter-spacing: 0.05em;">${p.code}</strong></td>
-      <td><strong>${p.discount}% OFF</strong></td>
-      <td>₹${p.minOrder}</td>
-      <td>${p.uses} redeemed</td>
+      <td><strong style="color: #f43f5e; font-family: monospace; font-size: 14px; letter-spacing: 0.08em; background: rgba(244,63,94,0.12); padding: 4px 10px; border-radius: 6px; border: 1px solid rgba(244,63,94,0.3);">${p.code}</strong></td>
+      <td><strong style="color: #34d399; font-size: 14px;">${p.discount}% OFF</strong></td>
+      <td><span style="color: #cbd5e1;">₹${p.minOrder}</span></td>
+      <td><span style="color: #94a3b8;">${p.uses} redeemed</span></td>
       <td><span class="status-pill completed">${p.status}</span></td>
       <td>
-        <button onclick="promosData.splice(${idx},1); renderPromosTable();" style="background: rgba(239,68,68,0.2); color: #f87171; border: 1px solid rgba(239,68,68,0.4); padding: 4px 8px; border-radius: 6px; cursor: pointer; font-size: 11px;">Delete</button>
+        <button onclick="promosData.splice(${idx},1); renderPromosTable();" style="background: rgba(239, 68, 68, 0.18); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); padding: 5px 12px; border-radius: 8px; cursor: pointer; font-size: 11.5px; font-weight: 700;">Delete</button>
       </td>
     </tr>
   `).join('');
 }
+
 
 function createPromoPrompt() {
   const code = prompt('Enter New Promo Code (e.g. FESTIVE25):');
