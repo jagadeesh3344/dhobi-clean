@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services - Dhobiclean</title>
+  <meta name="description" content="Explore Dhobiclean's full range of professional garment care: Wash & Fold, Wash & Iron, Premium Dry Cleaning, Steam Pressing, Shoe Spa, and Curtains & Bedding.">
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="services.css">
+</head>
+<body class="services-page">
+
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="header-container">
+      <!-- Logo -->
+      <a href="index.html" class="brand-logo" id="brand-logo">
+        <div class="logo-icon-wrapper">
+          <svg class="logo-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="36" height="36" rx="10" fill="#0284c7" />
+            <path d="M12 9H18.5C23.1944 9 27 12.8056 27 17.5C27 22.1944 23.1944 26 18.5 26H12V9Z" fill="#38bdf8" fill-opacity="0.3"/>
+            <path d="M11 9.5C11 8.67157 11.6716 8 12.5 8H18C23.2467 8 27.5 12.2533 27.5 17.5C27.5 22.7467 23.2467 27 18 27H12.5C11.6716 27 11 26.3284 11 25.5V9.5Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="18" cy="17.5" r="4.5" stroke="white" stroke-width="2.2"/>
+            <circle cx="18" cy="17.5" r="1.5" fill="white"/>
+          </svg>
+        </div>
+        <span class="brand-name">Dhobic<span class="brand-highlight">lean</span></span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="main-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="services.html" class="nav-link active">Services</a></li>
+          <li><a href="index.html#blog" class="nav-link">Blog</a></li>
+          <li><a href="#contact" class="nav-link">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Action -->
+      <div class="header-action">
+        <a href="index.html#booking-section" class="btn-schedule-nav" id="nav-schedule-btn">Schedule Pickup</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="services-main-wrapper">
+    <!-- Top Hero Banner Card -->
+    <section class="services-hero-section">
+      <div class="services-hero-card">
+        <div class="services-hero-text">
+          <div class="services-badge">
+            <span class="badge-dot"></span>
+            ALL-IN-ONE SERVICES
+          </div>
+          <h1 class="services-hero-heading">
+            Complete Laundry<br>
+            Solutions for<br>
+            <span class="highlight-blue">Every Need</span>
+          </h1>
+          <p class="services-hero-desc">
+            From everyday casuals to precious designer wear, we offer a wide range of services ensuring your clothes look and feel their best.
+          </p>
+        </div>
+        <div class="services-hero-visual">
+          <div class="services-hero-image-card">
+            <img src="assets/services-hero.jpg" alt="Neatly folded pastel towels, detergents, and soap bubbles" class="services-hero-img">
+            <!-- Floating bubble accents -->
+            <div class="bubble-accent bubble-acc-1"></div>
+            <div class="bubble-accent bubble-acc-2"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter Category Tabs -->
+    <section class="services-filter-section">
+      <div class="filter-tabs-wrapper" role="tablist" aria-label="Service categories">
+        <button type="button" class="filter-tab-btn active" data-filter="all" role="tab" aria-selected="true">All Services</button>
+        <button type="button" class="filter-tab-btn" data-filter="laundry" role="tab" aria-selected="false">Laundry</button>
+        <button type="button" class="filter-tab-btn" data-filter="dry-cleaning" role="tab" aria-selected="false">Dry Cleaning</button>
+        <button type="button" class="filter-tab-btn" data-filter="special-care" role="tab" aria-selected="false">Special Care</button>
+      </div>
+    </section>
+
+    <!-- Services Grid (6 Cards) -->
+    <section class="services-cards-section">
+      <div class="services-cards-grid" id="services-grid">
+        
+        <!-- Card 1: Wash & Fold -->
+        <div class="service-card-item" data-category="laundry">
+          <div class="service-thumb-container">
+            <img src="assets/service-wash-fold.jpg" alt="Wash and Fold Service" class="service-thumb-img">
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-title">Wash & Fold</h3>
+            <div class="service-card-price">₹50 / kg</div>
+            <p class="service-card-desc">Daily wear clothes washed and neatly folded for you.</p>
+            <a href="index.html#booking-section" class="btn-card-action">Book Now</a>
+          </div>
+        </div>
+
+        <!-- Card 2: Wash & Iron -->
+        <div class="service-card-item" data-category="laundry">
+          <div class="service-thumb-container">
+            <img src="assets/service-wash-iron.jpg" alt="Wash and Iron Service" class="service-thumb-img">
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-title">Wash & Iron</h3>
+            <div class="service-card-price">₹60 / kg</div>
+            <p class="service-card-desc">Clean, fresh, and crisp professional pressing.</p>
+            <a href="index.html#booking-section" class="btn-card-action">Book Now</a>
+          </div>
+        </div>
+
+        <!-- Card 3: Dry Cleaning -->
+        <div class="service-card-item" data-category="dry-cleaning">
+          <div class="service-thumb-container">
+            <img src="assets/service-dry-cleaning.jpg" alt="Dry Cleaning Service" class="service-thumb-img">
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-title">Dry Cleaning</h3>
+            <div class="service-card-price">₹120 / pc</div>
+            <p class="service-card-desc">Special care for delicate and premium fabrics.</p>
+            <a href="index.html#booking-section" class="btn-card-action">Book Now</a>
+          </div>
+        </div>
+
+        <!-- Card 4: Steam Iron -->
+        <div class="service-card-item" data-category="special-care">
+          <div class="service-thumb-container">
+            <img src="assets/service-steam-iron.jpg" alt="Steam Iron Service" class="service-thumb-img">
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-title">Steam Iron</h3>
+            <div class="service-card-price">₹20 / pc</div>
+            <p class="service-card-desc">Wrinkle-free finish with steam pressing.</p>
+            <a href="index.html#booking-section" class="btn-card-action">Book Now</a>
+          </div>
+        </div>
+
+        <!-- Card 5: Shoe Cleaning -->
+        <div class="service-card-item" data-category="special-care">
+          <div class="service-thumb-container">
+            <img src="assets/service-shoe-cleaning.jpg" alt="Shoe Cleaning Service" class="service-thumb-img">
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-title">Shoe Cleaning</h3>
+            <div class="service-card-price">₹199 / pair</div>
+            <p class="service-card-desc">Deep cleaning for all shoe types.</p>
+            <a href="index.html#booking-section" class="btn-card-action">Book Now</a>
+          </div>
+        </div>
+
+        <!-- Card 6: Curtains & Bedding -->
+        <div class="service-card-item" data-category="special-care">
+          <div class="service-thumb-container">
+            <img src="assets/service-curtains-bedding.jpg" alt="Curtains and Bedding Service" class="service-thumb-img">
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-title">Curtains & Bedding</h3>
+            <div class="service-card-price">₹150 / pc</div>
+            <p class="service-card-desc">Fresh and hygienic home linens.</p>
+            <a href="index.html#booking-section" class="btn-card-action">Book Now</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Bottom Help Banner Card -->
+    <section class="services-help-section">
+      <div class="services-help-card">
+        <h2 class="services-help-title">Not Sure Which Service You Need?</h2>
+        <p class="services-help-desc">Our laundry experts will help you choose the best care for your garments.</p>
+        <a href="#contact" class="btn-primary help-btn">Contact Us</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Premium Brand Footer -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-container">
+      <div class="footer-top-grid">
+        <!-- Col 1: Brand Info -->
+        <div class="footer-col brand-col">
+          <div class="footer-logo">
+            <div class="logo-icon-wrapper small">
+              <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="36" height="36" rx="10" fill="#0284c7" />
+                <path d="M12 9H18.5C23.1944 9 27 12.8056 27 17.5C27 22.1944 23.1944 26 18.5 26H12V9Z" fill="#38bdf8" fill-opacity="0.3"/>
+                <path d="M11 9.5C11 8.67157 11.6716 8 12.5 8H18C23.2467 8 27.5 12.2533 27.5 17.5C27.5 22.7467 23.2467 27 18 27H12.5C11.6716 27 11 26.3284 11 25.5V9.5Z" stroke="white" stroke-width="2.5" stroke-linejoin="round"/>
+                <circle cx="18" cy="17.5" r="4.5" stroke="white" stroke-width="2.2"/>
+              </svg>
+            </div>
+            <span class="brand-name white">Dhobic<span class="brand-highlight">lean</span></span>
+          </div>
+          <p class="footer-tagline">
+            India's most trusted on-demand laundry and garment care service. From everyday casuals to delicate formals, we treat every fabric with supreme hygiene and love.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Twitter">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Our Company</a></li>
+            <li><a href="services.html">Our Services</a></li>
+            <li><a href="index.html#booking-section">Schedule a Pickup</a></li>
+            <li><a href="#">Pricing Guide</a></li>
+            <li><a href="#">Store Locator</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Services -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Our Services</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#booking-section">Wash & Iron Service</a></li>
+            <li><a href="index.html#booking-section">Wash & Fold</a></li>
+            <li><a href="index.html#booking-section">Premium Dry Cleaning</a></li>
+            <li><a href="index.html#booking-section">Shoe Cleaning Spa</a></li>
+            <li><a href="index.html#booking-section">Steam Pressing</a></li>
+            <li><a href="index.html#booking-section">Curtains & Bedding</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Newsletter & Contact -->
+        <div class="footer-col contact-col">
+          <h4 class="footer-heading">Get in Touch</h4>
+          <ul class="contact-details">
+            <li>
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>+91 98765 43210 (24x7 Helpline)</span>
+            </li>
+            <li>
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <span>support@dhobiclean.com</span>
+            </li>
+            <li>
+              <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span>42 Eco Park Hub, Downtown Center</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>© 2026 Dhobiclean Technologies Pvt. Ltd. All rights reserved.</p>
+          <div class="footer-legal-links">
+            <a href="#">Privacy Policy</a>
+            <span class="divider">•</span>
+            <a href="#">Terms of Service</a>
+            <span class="divider">•</span>
+            <a href="#">Refund Policy</a>
+            <span class="divider">•</span>
+            <a href="#">Safety & Hygiene</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="services.js"></script>
+</body>
+</html>

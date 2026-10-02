@@ -1,0 +1,343 @@
+/* ==========================================================================
+   Dhobiclean - Services Page Stylesheet
+   ========================================================================== */
+
+.services-main-wrapper {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 30px 24px 60px;
+}
+
+/* ----------------- Hero Banner Card ----------------- */
+.services-hero-section {
+  margin-bottom: 36px;
+}
+
+.services-hero-card {
+  background: linear-gradient(135deg, #eef7fc 0%, #e1f2fd 55%, #f2f9ff 100%);
+  border-radius: 28px;
+  padding: 48px 52px;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: 40px;
+  box-shadow: 0 10px 30px -10px rgba(2, 132, 199, 0.08);
+  border: 1px solid rgba(186, 230, 253, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.services-hero-text {
+  max-width: 500px;
+}
+
+.services-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background-color: #e0f2fe;
+  border: 1px solid #bae6fd;
+  color: #0369a1;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  margin-bottom: 20px;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #0284c7;
+}
+
+.services-hero-heading {
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -0.03em;
+  color: var(--primary-dark-navy);
+  margin-bottom: 18px;
+}
+
+.services-hero-desc {
+  font-size: 14.5px;
+  line-height: 1.68;
+  color: var(--text-muted);
+}
+
+.services-hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.services-hero-image-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px -10px rgba(11, 26, 45, 0.16);
+  background-color: #ffffff;
+}
+
+.services-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.services-hero-image-card:hover .services-hero-img {
+  transform: scale(1.025);
+}
+
+.bubble-accent {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.9), rgba(186, 230, 253, 0.5) 60%, rgba(2, 132, 199, 0.25) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.8), 0 3px 12px rgba(56, 189, 248, 0.25);
+  pointer-events: none;
+}
+
+.bubble-acc-1 {
+  width: 26px;
+  height: 26px;
+  top: 10%;
+  right: 15%;
+  animation: floatBubble 7s infinite ease-in-out;
+}
+
+.bubble-acc-2 {
+  width: 18px;
+  height: 18px;
+  bottom: 15%;
+  left: 10%;
+  animation: floatBubble 9s infinite ease-in-out reverse;
+}
+
+/* ----------------- Filter Category Tabs ----------------- */
+.services-filter-section {
+  margin-bottom: 34px;
+}
+
+.filter-tabs-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-tab-btn {
+  background-color: #ffffff;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  padding: 9px 24px;
+  border-radius: 9999px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-tab-btn:hover {
+  background-color: #f1f5f9;
+  color: var(--primary-dark-navy);
+  border-color: #cbd5e1;
+}
+
+.filter-tab-btn.active {
+  background-color: var(--primary-dark-navy);
+  color: #ffffff;
+  border-color: var(--primary-dark-navy);
+  box-shadow: 0 4px 12px rgba(11, 26, 45, 0.16);
+}
+
+/* ----------------- Services Grid (6 Cards) ----------------- */
+.services-cards-section {
+  margin-bottom: 56px;
+}
+
+.services-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.service-card-item {
+  background-color: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 4px 16px rgba(11, 26, 45, 0.04);
+  transition: all var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px -4px rgba(11, 26, 45, 0.1);
+  border-color: #bae6fd;
+}
+
+.service-card-item.hidden {
+  display: none;
+}
+
+.service-thumb-container {
+  width: 100%;
+  height: 220px;
+  background-color: #f4f9fd;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.service-card-item:hover .service-thumb-img {
+  transform: scale(1.04);
+}
+
+.service-card-body {
+  padding: 16px 6px 6px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.service-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-dark-navy);
+  letter-spacing: -0.015em;
+  margin-bottom: 2px;
+}
+
+.service-card-price {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: 8px;
+}
+
+.service-card-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  min-height: 40px;
+}
+
+.btn-card-action {
+  margin-top: auto;
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: var(--primary-dark-navy);
+  color: #ffffff;
+  padding: 11px 16px;
+  border-radius: 9999px;
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(11, 26, 45, 0.1);
+}
+
+.btn-card-action:hover {
+  background-color: #1a304e;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(11, 26, 45, 0.18);
+}
+
+/* ----------------- Bottom Help Banner Card ----------------- */
+.services-help-section {
+  margin-bottom: 24px;
+}
+
+.services-help-card {
+  background: linear-gradient(180deg, #f0f8fd 0%, #e2f2fc 100%);
+  border: 1px solid rgba(186, 230, 253, 0.8);
+  border-radius: 24px;
+  padding: 48px 24px;
+  text-align: center;
+  box-shadow: 0 10px 30px -10px rgba(2, 132, 199, 0.1);
+}
+
+.services-help-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--primary-dark-navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.services-help-desc {
+  font-size: 14.5px;
+  color: var(--text-muted);
+  margin-bottom: 22px;
+}
+
+.help-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 9999px;
+}
+
+/* ----------------- Responsive Breakpoints ----------------- */
+@media (max-width: 1024px) {
+  .services-hero-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 36px 28px;
+  }
+
+  .services-hero-text {
+    max-width: 100%;
+  }
+
+  .services-hero-desc {
+    margin: 0 auto;
+  }
+
+  .services-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filter-tabs-wrapper {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-hero-heading {
+    font-size: 36px;
+  }
+
+  .services-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-help-title {
+    font-size: 22px;
+  }
+}
