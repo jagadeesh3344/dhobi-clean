@@ -1113,6 +1113,83 @@ body.mobile-menu-open {
   background-color: #ffffff;
 }
 
+/* Phone Input Strict Rules & Formatting */
+.phone-input-box {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+}
+
+.phone-prefix {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  height: 44px;
+  background: rgba(2, 132, 199, 0.1);
+  border: 1.5px solid rgba(2, 132, 199, 0.28);
+  border-radius: 12px;
+  color: #0284c7;
+  font-weight: 800;
+  font-size: 13.5px;
+  flex-shrink: 0;
+  letter-spacing: 0.04em;
+  user-select: none;
+}
+
+.phone-input-box input {
+  flex: 1 !important;
+  width: 100% !important;
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+}
+
+.phone-validation-hint {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #64748b;
+  margin-top: 6px;
+  transition: all 0.2s ease;
+}
+
+.phone-validation-hint.typing {
+  color: #0284c7;
+}
+
+.phone-validation-hint.valid {
+  color: #10b981;
+  font-weight: 700;
+}
+
+.phone-validation-hint.error {
+  color: #ef4444;
+  font-weight: 700;
+}
+
+input.phone-valid {
+  border-color: #10b981 !important;
+  background-color: rgba(16, 185, 129, 0.06) !important;
+}
+
+input.phone-invalid:focus {
+  border-color: #f59e0b !important;
+}
+
+@keyframes phoneShake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.phone-error-shake {
+  animation: phoneShake 0.35s ease-in-out;
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25) !important;
+}
+
+
 /* Time Slot Section */
 .time-slot-section {
   margin-bottom: 24px;

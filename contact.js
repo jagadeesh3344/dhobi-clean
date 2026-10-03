@@ -71,7 +71,12 @@ let currentStoreKey = 'hyderabad';
 
 document.addEventListener('DOMContentLoaded', () => {
   initMap();
+  setupStrictPhoneValidation(
+    document.getElementById('contact-phone'),
+    document.getElementById('contact-phone-hint')
+  );
 });
+
 
 /**
  * Initialize Leaflet Map
@@ -188,15 +193,144 @@ function switchStore(storeKey) {
 window.switchStore = switchStore;
 
 /**
+ * Setup strict 10-digit mobile number rules:
+ * - Exactly 10 digits
+ * - Must start with 6, 7, 8, or 9
+ * - Rejects all letters, symbols, and invalid starting digits
+ * - Smart paste handling for +91 / 0 prefix
+ */
+function setupStrictPhoneValidation(inputEl, hintEl) {
+  if (!inputEl) return;
+
+  function updateHint(val) {
+    if (!hintEl) return;
+    if (val.length === 0) {
+      hintEl.textContent = 'Enter 10-digit number starting with 6, 7, 8, or 9';
+      hintEl.className = 'phone-validation-hint';
+      inputEl.classList.remove('phone-valid', 'phone-invalid');
+    } else if (val.length < 10) {
+      hintEl.textContent = `${val.length}/10 digits (${10 - val.length} more needed)`;
+      hintEl.className = 'phone-validation-hint typing';
+      inputEl.classList.remove('phone-valid');
+      inputEl.classList.add('phone-invalid');
+    } else if (val.length === 10 && /^[6-9]\d{9}$/.test(val)) {
+      hintEl.textContent = '✓ Valid 10-digit mobile number';
+      hintEl.className = 'phone-validation-hint valid';
+      inputEl.classList.remove('phone-invalid');
+      inputEl.classList.add('phone-valid');
+    } else {
+      hintEl.textContent = '❌ Must be 10 digits starting with 6, 7, 8, or 9';
+      hintEl.className = 'phone-validation-hint error';
+      inputEl.classList.remove('phone-valid');
+      inputEl.classList.add('phone-invalid');
+    }
+  }
+
+  // Prevent invalid keys
+  inputEl.addEventListener('keydown', (e) => {
+    if (
+      ['Backspace', 'Delete', 'Tab', 'Escape', 'Enter', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(e.key) ||
+      (e.ctrlKey || e.metaKey)
+    ) {
+      return;
+    }
+
+    if (!/^[0-9]$/.test(e.key)) {
+      e.preventDefault();
+      return;
+    }
+
+    const value = inputEl.value;
+    const isReplacingAll = inputEl.selectionStart === 0 && inputEl.selectionEnd === value.length;
+
+    // First digit must be 6, 7, 8, or 9
+    if ((value.length === 0 || isReplacingAll) && !/^[6-9]$/.test(e.key)) {
+      e.preventDefault();
+      if (hintEl) {
+        hintEl.textContent = '❌ Mobile number must start with 6, 7, 8, or 9';
+        hintEl.className = 'phone-validation-hint error';
+      }
+      inputEl.classList.add('phone-error-shake');
+      setTimeout(() => inputEl.classList.remove('phone-error-shake'), 400);
+      return;
+    }
+
+    // Capped at 10 digits
+    if (value.length >= 10 && inputEl.selectionStart === inputEl.selectionEnd) {
+      e.preventDefault();
+      if (hintEl) {
+        hintEl.textContent = '⚠️ Maximum 10 digits reached';
+        setTimeout(() => updateHint(inputEl.value), 1200);
+      }
+    }
+  });
+
+  // Handle paste and typing
+  inputEl.addEventListener('input', () => {
+    let val = inputEl.value.replace(/\D/g, '');
+
+    if (val.length > 10) {
+      if (val.startsWith('91') && /^[6-9]/.test(val.slice(2))) {
+        val = val.slice(2);
+      } else if (val.startsWith('0') && /^[6-9]/.test(val.slice(1))) {
+        val = val.slice(1);
+      }
+    }
+
+    while (val.length > 0 && !/^[6-9]/.test(val)) {
+      val = val.slice(1);
+    }
+
+    if (val.length > 10) {
+      val = val.slice(0, 10);
+    }
+
+    inputEl.value = val;
+    updateHint(val);
+  });
+
+  inputEl.addEventListener('blur', () => {
+    updateHint(inputEl.value);
+  });
+
+  if (inputEl.value) {
+    let val = inputEl.value.replace(/\D/g, '');
+    if (val.length > 10) val = val.slice(0, 10);
+    inputEl.value = val;
+    updateHint(val);
+  }
+}
+
+/**
  * Handle Contact Form Submission
  */
 function handleContactMessage(event) {
   event.preventDefault();
 
-  const name = document.getElementById('contact-fullname').value.trim();
-  const email = document.getElementById('contact-email').value.trim();
-  const phone = document.getElementById('contact-phone').value.trim();
-  const message = document.getElementById('contact-message').value.trim();
+  const nameInput = document.getElementById('contact-fullname');
+  const emailInput = document.getElementById('contact-email');
+  const phoneInput = document.getElementById('contact-phone');
+  const messageInput = document.getElementById('contact-message');
+
+  const name = nameInput.value.trim();
+  const email = emailInput.value.trim();
+  const phone = phoneInput.value.trim();
+  const message = messageInput.value.trim();
+
+  // Strict 10-digit mobile number validation
+  const phoneRegex = /^[6-9]\d{9}$/;
+  if (!phoneRegex.test(phone)) {
+    alert('Please enter a valid 10-digit mobile number starting with 6, 7, 8, or 9.');
+    phoneInput.focus();
+    phoneInput.classList.add('phone-error-shake');
+    const hint = document.getElementById('contact-phone-hint');
+    if (hint) {
+      hint.textContent = '❌ Must be exactly 10 digits starting with 6, 7, 8, or 9';
+      hint.className = 'phone-validation-hint error';
+    }
+    setTimeout(() => phoneInput.classList.remove('phone-error-shake'), 400);
+    return;
+  }
 
   const newMsg = {
     time: `Today ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`,
@@ -219,4 +353,11 @@ function handleContactMessage(event) {
   alert(`Thank you, ${name}! Your message has been sent successfully. Our team will contact you at ${phone || email} within 15 minutes.`);
 
   event.target.reset();
+  const hint = document.getElementById('contact-phone-hint');
+  if (hint) {
+    hint.textContent = 'Enter 10-digit number starting with 6, 7, 8, or 9';
+    hint.className = 'phone-validation-hint';
+  }
+  phoneInput.classList.remove('phone-valid', 'phone-invalid');
 }
+
