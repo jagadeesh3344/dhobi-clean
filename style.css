@@ -1145,38 +1145,6 @@ body.mobile-menu-open {
   font-variant-numeric: tabular-nums;
 }
 
-.phone-validation-hint {
-  display: block;
-  font-size: 11.5px;
-  font-weight: 600;
-  color: #64748b;
-  margin-top: 6px;
-  transition: all 0.2s ease;
-}
-
-.phone-validation-hint.typing {
-  color: #0284c7;
-}
-
-.phone-validation-hint.valid {
-  color: #10b981;
-  font-weight: 700;
-}
-
-.phone-validation-hint.error {
-  color: #ef4444;
-  font-weight: 700;
-}
-
-input.phone-valid {
-  border-color: #10b981 !important;
-  background-color: rgba(16, 185, 129, 0.06) !important;
-}
-
-input.phone-invalid:focus {
-  border-color: #f59e0b !important;
-}
-
 @keyframes phoneShake {
   0%, 100% { transform: translateX(0); }
   20%, 60% { transform: translateX(-6px); }

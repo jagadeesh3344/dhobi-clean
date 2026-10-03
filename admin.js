@@ -475,10 +475,7 @@ function createPromoPrompt() {
 function openNewOrderModal() {
   const modal = document.getElementById('new-order-modal');
   if (modal) modal.classList.add('show');
-  setupStrictPhoneValidation(
-    document.getElementById('manual-phone'),
-    document.getElementById('manual-phone-hint')
-  );
+  setupStrictPhoneValidation(document.getElementById('manual-phone'));
 }
 
 function closeAdminModal(modalId) {
@@ -489,33 +486,9 @@ function closeAdminModal(modalId) {
 /**
  * Setup strict 10-digit mobile number rules
  */
-function setupStrictPhoneValidation(inputEl, hintEl) {
+function setupStrictPhoneValidation(inputEl) {
   if (!inputEl || inputEl.dataset.strictInit) return;
   inputEl.dataset.strictInit = 'true';
-
-  function updateHint(val) {
-    if (!hintEl) return;
-    if (val.length === 0) {
-      hintEl.textContent = 'Enter 10-digit number starting with 6, 7, 8, or 9';
-      hintEl.className = 'phone-validation-hint';
-      inputEl.classList.remove('phone-valid', 'phone-invalid');
-    } else if (val.length < 10) {
-      hintEl.textContent = `${val.length}/10 digits (${10 - val.length} more needed)`;
-      hintEl.className = 'phone-validation-hint typing';
-      inputEl.classList.remove('phone-valid');
-      inputEl.classList.add('phone-invalid');
-    } else if (val.length === 10 && /^[6-9]\d{9}$/.test(val)) {
-      hintEl.textContent = '✓ Valid 10-digit mobile number';
-      hintEl.className = 'phone-validation-hint valid';
-      inputEl.classList.remove('phone-invalid');
-      inputEl.classList.add('phone-valid');
-    } else {
-      hintEl.textContent = '❌ Must be 10 digits starting with 6, 7, 8, or 9';
-      hintEl.className = 'phone-validation-hint error';
-      inputEl.classList.remove('phone-valid');
-      inputEl.classList.add('phone-invalid');
-    }
-  }
 
   inputEl.addEventListener('keydown', (e) => {
     if (
@@ -535,21 +508,14 @@ function setupStrictPhoneValidation(inputEl, hintEl) {
 
     if ((value.length === 0 || isReplacingAll) && !/^[6-9]$/.test(e.key)) {
       e.preventDefault();
-      if (hintEl) {
-        hintEl.textContent = '❌ Mobile number must start with 6, 7, 8, or 9';
-        hintEl.className = 'phone-validation-hint error';
-      }
       inputEl.classList.add('phone-error-shake');
       setTimeout(() => inputEl.classList.remove('phone-error-shake'), 400);
       return;
     }
 
+    // Strictly limit to 10 digits - if 10 digits are already entered, do NOT take another digit
     if (value.length >= 10 && inputEl.selectionStart === inputEl.selectionEnd) {
       e.preventDefault();
-      if (hintEl) {
-        hintEl.textContent = '⚠️ Maximum 10 digits reached';
-        setTimeout(() => updateHint(inputEl.value), 1200);
-      }
     }
   });
 
@@ -568,23 +534,18 @@ function setupStrictPhoneValidation(inputEl, hintEl) {
       val = val.slice(1);
     }
 
+    // Strictly cap at 10 digits - will never exceed 10
     if (val.length > 10) {
       val = val.slice(0, 10);
     }
 
     inputEl.value = val;
-    updateHint(val);
-  });
-
-  inputEl.addEventListener('blur', () => {
-    updateHint(inputEl.value);
   });
 
   if (inputEl.value) {
     let val = inputEl.value.replace(/\D/g, '');
     if (val.length > 10) val = val.slice(0, 10);
     inputEl.value = val;
-    updateHint(val);
   }
 }
 
@@ -609,14 +570,10 @@ function handleManualOrderSubmit(e) {
     alert('Please enter a valid 10-digit mobile number starting with 6, 7, 8, or 9.');
     phoneInput.focus();
     phoneInput.classList.add('phone-error-shake');
-    const hint = document.getElementById('manual-phone-hint');
-    if (hint) {
-      hint.textContent = '❌ Must be exactly 10 digits starting with 6, 7, 8, or 9';
-      hint.className = 'phone-validation-hint error';
-    }
     setTimeout(() => phoneInput.classList.remove('phone-error-shake'), 400);
     return;
   }
+
 
   const newId = `#DHB-${Math.floor(100000 + Math.random() * 900000)}`;
 

@@ -71,11 +71,9 @@ let currentStoreKey = 'hyderabad';
 
 document.addEventListener('DOMContentLoaded', () => {
   initMap();
-  setupStrictPhoneValidation(
-    document.getElementById('contact-phone'),
-    document.getElementById('contact-phone-hint')
-  );
+  setupStrictPhoneValidation(document.getElementById('contact-phone'));
 });
+
 
 
 /**
@@ -194,37 +192,14 @@ window.switchStore = switchStore;
 
 /**
  * Setup strict 10-digit mobile number rules:
- * - Exactly 10 digits
+ * - Exactly 10 digits (stops taking any more digits once 10 is reached)
  * - Must start with 6, 7, 8, or 9
  * - Rejects all letters, symbols, and invalid starting digits
  * - Smart paste handling for +91 / 0 prefix
+ * - Clean input field without text message clutter
  */
-function setupStrictPhoneValidation(inputEl, hintEl) {
+function setupStrictPhoneValidation(inputEl) {
   if (!inputEl) return;
-
-  function updateHint(val) {
-    if (!hintEl) return;
-    if (val.length === 0) {
-      hintEl.textContent = 'Enter 10-digit number starting with 6, 7, 8, or 9';
-      hintEl.className = 'phone-validation-hint';
-      inputEl.classList.remove('phone-valid', 'phone-invalid');
-    } else if (val.length < 10) {
-      hintEl.textContent = `${val.length}/10 digits (${10 - val.length} more needed)`;
-      hintEl.className = 'phone-validation-hint typing';
-      inputEl.classList.remove('phone-valid');
-      inputEl.classList.add('phone-invalid');
-    } else if (val.length === 10 && /^[6-9]\d{9}$/.test(val)) {
-      hintEl.textContent = '✓ Valid 10-digit mobile number';
-      hintEl.className = 'phone-validation-hint valid';
-      inputEl.classList.remove('phone-invalid');
-      inputEl.classList.add('phone-valid');
-    } else {
-      hintEl.textContent = '❌ Must be 10 digits starting with 6, 7, 8, or 9';
-      hintEl.className = 'phone-validation-hint error';
-      inputEl.classList.remove('phone-valid');
-      inputEl.classList.add('phone-invalid');
-    }
-  }
 
   // Prevent invalid keys
   inputEl.addEventListener('keydown', (e) => {
@@ -246,22 +221,14 @@ function setupStrictPhoneValidation(inputEl, hintEl) {
     // First digit must be 6, 7, 8, or 9
     if ((value.length === 0 || isReplacingAll) && !/^[6-9]$/.test(e.key)) {
       e.preventDefault();
-      if (hintEl) {
-        hintEl.textContent = '❌ Mobile number must start with 6, 7, 8, or 9';
-        hintEl.className = 'phone-validation-hint error';
-      }
       inputEl.classList.add('phone-error-shake');
       setTimeout(() => inputEl.classList.remove('phone-error-shake'), 400);
       return;
     }
 
-    // Capped at 10 digits
+    // Strictly limit to 10 digits - if 10 digits are already entered, do NOT take another digit
     if (value.length >= 10 && inputEl.selectionStart === inputEl.selectionEnd) {
       e.preventDefault();
-      if (hintEl) {
-        hintEl.textContent = '⚠️ Maximum 10 digits reached';
-        setTimeout(() => updateHint(inputEl.value), 1200);
-      }
     }
   });
 
@@ -281,23 +248,18 @@ function setupStrictPhoneValidation(inputEl, hintEl) {
       val = val.slice(1);
     }
 
+    // Strictly cap at 10 digits - will never exceed 10
     if (val.length > 10) {
       val = val.slice(0, 10);
     }
 
     inputEl.value = val;
-    updateHint(val);
-  });
-
-  inputEl.addEventListener('blur', () => {
-    updateHint(inputEl.value);
   });
 
   if (inputEl.value) {
     let val = inputEl.value.replace(/\D/g, '');
     if (val.length > 10) val = val.slice(0, 10);
     inputEl.value = val;
-    updateHint(val);
   }
 }
 
@@ -323,11 +285,6 @@ function handleContactMessage(event) {
     alert('Please enter a valid 10-digit mobile number starting with 6, 7, 8, or 9.');
     phoneInput.focus();
     phoneInput.classList.add('phone-error-shake');
-    const hint = document.getElementById('contact-phone-hint');
-    if (hint) {
-      hint.textContent = '❌ Must be exactly 10 digits starting with 6, 7, 8, or 9';
-      hint.className = 'phone-validation-hint error';
-    }
     setTimeout(() => phoneInput.classList.remove('phone-error-shake'), 400);
     return;
   }
@@ -353,11 +310,6 @@ function handleContactMessage(event) {
   alert(`Thank you, ${name}! Your message has been sent successfully. Our team will contact you at ${phone || email} within 15 minutes.`);
 
   event.target.reset();
-  const hint = document.getElementById('contact-phone-hint');
-  if (hint) {
-    hint.textContent = 'Enter 10-digit number starting with 6, 7, 8, or 9';
-    hint.className = 'phone-validation-hint';
-  }
-  phoneInput.classList.remove('phone-valid', 'phone-invalid');
 }
+
 

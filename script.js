@@ -72,37 +72,14 @@ function updateSummaryBadge() {
 
 /**
  * Setup strict 10-digit mobile number rules:
- * - Exactly 10 digits
+ * - Exactly 10 digits (stops taking any more digits once 10 is reached)
  * - Must start with 6, 7, 8, or 9
  * - Rejects all letters, symbols, and invalid starting digits
  * - Smart paste handling for +91 / 0 prefix
+ * - Clean input field without text message clutter
  */
-function setupStrictPhoneValidation(inputEl, hintEl) {
+function setupStrictPhoneValidation(inputEl) {
   if (!inputEl) return;
-
-  function updateHint(val) {
-    if (!hintEl) return;
-    if (val.length === 0) {
-      hintEl.textContent = 'Enter 10-digit number starting with 6, 7, 8, or 9';
-      hintEl.className = 'phone-validation-hint';
-      inputEl.classList.remove('phone-valid', 'phone-invalid');
-    } else if (val.length < 10) {
-      hintEl.textContent = `${val.length}/10 digits (${10 - val.length} more needed)`;
-      hintEl.className = 'phone-validation-hint typing';
-      inputEl.classList.remove('phone-valid');
-      inputEl.classList.add('phone-invalid');
-    } else if (val.length === 10 && /^[6-9]\d{9}$/.test(val)) {
-      hintEl.textContent = '✓ Valid 10-digit mobile number';
-      hintEl.className = 'phone-validation-hint valid';
-      inputEl.classList.remove('phone-invalid');
-      inputEl.classList.add('phone-valid');
-    } else {
-      hintEl.textContent = '❌ Must be 10 digits starting with 6, 7, 8, or 9';
-      hintEl.className = 'phone-validation-hint error';
-      inputEl.classList.remove('phone-valid');
-      inputEl.classList.add('phone-invalid');
-    }
-  }
 
   // Prevent invalid keys before they hit the input
   inputEl.addEventListener('keydown', (e) => {
@@ -126,22 +103,14 @@ function setupStrictPhoneValidation(inputEl, hintEl) {
     // First digit restriction: must start with 6, 7, 8, or 9
     if ((value.length === 0 || isReplacingAll) && !/^[6-9]$/.test(e.key)) {
       e.preventDefault();
-      if (hintEl) {
-        hintEl.textContent = '❌ Mobile number must start with 6, 7, 8, or 9';
-        hintEl.className = 'phone-validation-hint error';
-      }
       inputEl.classList.add('phone-error-shake');
       setTimeout(() => inputEl.classList.remove('phone-error-shake'), 400);
       return;
     }
 
-    // Maximum 10 digits limit
+    // Strictly limit to 10 digits - if 10 digits are already entered, do NOT take another digit
     if (value.length >= 10 && inputEl.selectionStart === inputEl.selectionEnd) {
       e.preventDefault();
-      if (hintEl) {
-        hintEl.textContent = '⚠️ Maximum 10 digits reached';
-        setTimeout(() => updateHint(inputEl.value), 1200);
-      }
     }
   });
 
@@ -163,18 +132,12 @@ function setupStrictPhoneValidation(inputEl, hintEl) {
       val = val.slice(1);
     }
 
-    // Strictly limit to 10 digits
+    // Strictly cap at 10 digits - will never exceed 10
     if (val.length > 10) {
       val = val.slice(0, 10);
     }
 
     inputEl.value = val;
-    updateHint(val);
-  });
-
-  // Handle blur
-  inputEl.addEventListener('blur', () => {
-    updateHint(inputEl.value);
   });
 
   // Initialize if value already exists
@@ -182,7 +145,6 @@ function setupStrictPhoneValidation(inputEl, hintEl) {
     let val = inputEl.value.replace(/\D/g, '');
     if (val.length > 10) val = val.slice(0, 10);
     inputEl.value = val;
-    updateHint(val);
   }
 }
 
@@ -213,14 +175,10 @@ function handleBookingSubmit(event) {
     showToast('⚠️ Please enter a valid 10-digit mobile number starting with 6, 7, 8, or 9');
     phoneInput.focus();
     phoneInput.classList.add('phone-error-shake');
-    const hint = document.getElementById('user-phone-hint');
-    if (hint) {
-      hint.textContent = '❌ Must be exactly 10 digits starting with 6, 7, 8, or 9';
-      hint.className = 'phone-validation-hint error';
-    }
     setTimeout(() => phoneInput.classList.remove('phone-error-shake'), 400);
     return;
   }
+
 
   // Check selected items
   const selectedItems = [];
@@ -423,10 +381,8 @@ window.addEventListener('DOMContentLoaded', () => {
   initTimeSlotFilter();
 
   // Attach strict 10-digit phone validation starting with 6, 7, 8, or 9
-  setupStrictPhoneValidation(
-    document.getElementById('user-phone'),
-    document.getElementById('user-phone-hint')
-  );
+  setupStrictPhoneValidation(document.getElementById('user-phone'));
+
 
   const sections = document.querySelectorAll('main section');
   const navLinks = document.querySelectorAll('.nav-link');
