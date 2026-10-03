@@ -8,7 +8,7 @@ const STORES = {
     address: 'Road No. 36, Jubilee Hills, Hyderabad, Telangana - 500033',
     lat: 17.4325,
     lng: 78.4071,
-    phone: '+91 98765 43210',
+    phone: '+91 62817 46225',
     hours: 'Open Daily: 8:00 AM - 9:00 PM',
     manager: 'Hub Manager: Vikram Reddy',
     status: '🟢 Open Now',

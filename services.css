@@ -329,15 +329,71 @@
 }
 
 @media (max-width: 768px) {
+  .services-main-wrapper {
+    padding: 16px 14px 40px;
+  }
+
+  .services-hero-card {
+    padding: 28px 18px;
+    border-radius: 20px;
+  }
+
   .services-hero-heading {
-    font-size: 36px;
+    font-size: clamp(26px, 7vw, 32px);
+    line-height: 1.25;
+  }
+
+  .services-hero-heading br {
+    display: none;
+  }
+
+  .services-hero-desc {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* Horizontal swipeable category tabs with hidden scrollbar */
+  .filter-tabs-wrapper {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 4px 10px;
+    gap: 8px;
+    justify-content: flex-start;
+    scrollbar-width: none;
+  }
+
+  .filter-tabs-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-tab-btn {
+    flex-shrink: 0;
+    padding: 9px 18px;
+    font-size: 13.5px;
   }
 
   .services-cards-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .service-card-item {
+    border-radius: 18px;
+    padding: 16px;
+  }
+
+  .service-thumb-container {
+    height: 180px;
+  }
+
+  .services-help-card {
+    padding: 30px 20px;
+    border-radius: 20px;
   }
 
   .services-help-title {
-    font-size: 22px;
+    font-size: 20px;
   }
 }

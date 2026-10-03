@@ -558,11 +558,82 @@
 }
 
 @media (max-width: 768px) {
+  .contact-main-wrapper {
+    padding: 16px 14px 40px;
+  }
+
+  .contact-hero-card {
+    padding: 26px 18px;
+    border-radius: 20px;
+  }
+
   .contact-hero-heading {
-    font-size: 36px;
+    font-size: clamp(26px, 7vw, 32px);
+    line-height: 1.25;
+  }
+
+  .contact-hero-heading br {
+    display: none;
+  }
+
+  .contact-channels-list {
+    width: 100%;
+  }
+
+  .contact-channel-item {
+    width: 100%;
+    padding: 14px 16px;
+  }
+
+  .contact-form-card {
+    padding: 24px 16px;
+    border-radius: 20px;
+  }
+
+  /* Form input font size 16px prevents iOS zoom */
+  .form-field-group input,
+  .form-field-group textarea {
+    font-size: 16px !important;
+    padding: 12px 14px;
+  }
+
+  .map-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .map-store-pills {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+  }
+
+  .map-store-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .store-pill {
+    flex-shrink: 0;
   }
 
   .map-render-wrapper {
-    height: 300px;
+    height: 260px;
+    border-radius: 16px;
+  }
+
+  .store-actions-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-get-directions,
+  .btn-call-store {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 18px;
   }
 }

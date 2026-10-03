@@ -44,7 +44,7 @@ The website consists of 5 fully responsive, interconnected, and picture-perfect 
 5. **Contact Us (`contact.html`)**:
    - Specialist hero section with support badge.
    - 4 direct contact channel cards:
-     - Call Us (`+91 98765 43210`)
+     - Call Us (`+91 62817 46225`)
      - Email Us (`support@dhobiclean.com`)
      - Visit Us (`Banjara Hills, Hyderabad, Telangana 500034`)
      - Working Hours (`Mon - Sat: 7:00 AM - 9:00 PM`)
