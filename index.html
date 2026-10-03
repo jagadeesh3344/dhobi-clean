@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=noborder1">
+  <link rel="stylesheet" href="style.css?v=menu2">
   <style>
     /* iOS Liquid Glassmorphism Booking Card & Form Styling */
     .booking-section {
@@ -309,35 +309,122 @@
         </button>
       </div>
     </div>
+  </header>
 
-    <!-- Mobile Navigation Drawer -->
-    <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
-      <div class="mobile-nav-inner">
-        <ul class="mobile-nav-links">
-          <li><a href="index.html" class="mobile-nav-link active"><span>Home</span></a></li>
-          <li><a href="about.html" class="mobile-nav-link"><span>About Us</span></a></li>
-          <li><a href="services.html" class="mobile-nav-link"><span>Services</span></a></li>
-          <li><a href="blog.html" class="mobile-nav-link"><span>Blog</span></a></li>
+  <!-- Full-Screen Luxury Mobile Navigation Menu -->
+  <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+    <div class="mobile-nav-topbar">
+      <a href="index.html" class="brand-logo" onclick="window.closeMobileMenu()">
+        <div class="logo-icon-wrapper">
+          <svg class="logo-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="12" fill="#0284c7" />
+            <path d="M20 9C14.4772 9 10 13.4772 10 19C10 24.5228 14.4772 29 20 29C25.5228 29 30 24.5228 30 19C30 13.4772 25.5228 9 20 9ZM20 26C16.134 26 13 22.866 13 19C13 15.134 16.134 12 20 12C23.866 12 27 15.134 27 19C27 22.866 23.866 26 20 26Z" fill="#ffffff" />
+            <circle cx="20" cy="19" r="4" fill="#38bdf8" />
+            <path d="M24 13L26 11" stroke="#ffffff" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </div>
+        <span class="brand-name">Dhobic<span class="brand-highlight">lean</span></span>
+      </a>
+      <button class="mobile-nav-close-btn" id="mobile-nav-close" aria-label="Close Navigation Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile-nav-content">
+      <nav class="mobile-nav-menu">
+        <div class="mobile-nav-label">Navigation</div>
+        <ul class="mobile-nav-list">
           <li>
-            <a href="contact.html" class="mobile-nav-link">
-              <span>Contact Us</span>
-              <span class="nav-badge blue">24x7</span>
+            <a href="index.html" class="mobile-nav-item active">
+              <div class="mobile-nav-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <div class="mobile-nav-item-text">
+                <span class="mobile-nav-item-title">Home</span>
+                <span class="mobile-nav-item-desc">Effortless doorstep laundry care</span>
+              </div>
+              <svg class="mobile-nav-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="about.html" class="mobile-nav-item">
+              <div class="mobile-nav-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              </div>
+              <div class="mobile-nav-item-text">
+                <span class="mobile-nav-item-title">About Us</span>
+                <span class="mobile-nav-item-desc">Our story, hygiene promise & team</span>
+              </div>
+              <svg class="mobile-nav-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="services.html" class="mobile-nav-item">
+              <div class="mobile-nav-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.38 3.46L16 2a4 4 0 0 0-4.8 2.6L10.3 8l5.7 1.9 1-3.4 3.38-3.04z"/><rect x="2" y="8" width="20" height="14" rx="2"/></svg>
+              </div>
+              <div class="mobile-nav-item-text">
+                <span class="mobile-nav-item-title">Services & Pricing</span>
+                <span class="mobile-nav-item-desc">Wash, Steam Press, Dry Clean & Shoes</span>
+              </div>
+              <svg class="mobile-nav-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="blog.html" class="mobile-nav-item">
+              <div class="mobile-nav-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </div>
+              <div class="mobile-nav-item-text">
+                <span class="mobile-nav-item-title">Fabric Care Blog</span>
+                <span class="mobile-nav-item-desc">Tips, stain guides & wardrobe care</span>
+              </div>
+              <svg class="mobile-nav-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="contact.html" class="mobile-nav-item">
+              <div class="mobile-nav-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              </div>
+              <div class="mobile-nav-item-text">
+                <div class="mobile-nav-item-title-row">
+                  <span class="mobile-nav-item-title">Contact Us</span>
+                  <span class="nav-badge blue">24x7</span>
+                </div>
+                <span class="mobile-nav-item-desc">Instant support & store locations</span>
+              </div>
+              <svg class="mobile-nav-item-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
             </a>
           </li>
         </ul>
-        <div class="mobile-nav-actions">
-          <a href="#booking-section" class="btn-mobile-schedule">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            Schedule a Pickup
-          </a>
-          <a href="tel:+916281746225" class="btn-mobile-call">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            Call: +91 62817 46225
-          </a>
+      </nav>
+
+      <div class="mobile-nav-bottom">
+        <a href="#booking-section" class="btn-fullscreen-schedule">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Schedule a Pickup</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-arrow"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="tel:+916281746225" class="btn-fullscreen-call">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Call Us: +91 62817 46225</span>
+        </a>
+        <div class="mobile-nav-meta">
+          <div class="meta-item">
+            <span class="meta-dot"></span>
+            <span>Open: 7:00 AM – 9:00 PM</span>
+          </div>
+          <div class="meta-item">
+            <span>⚡ Express 24h Delivery</span>
+          </div>
         </div>
       </div>
     </div>
-  </header>
+  </div>
 
   <!-- Hero Section -->
   <main id="home">
@@ -940,6 +1027,6 @@
   </div>
 
   <script src="script.js" defer></script>
-  <script src="prefetch.js" defer></script>
+  <script src="prefetch.js?v=menu2" defer></script>
 </body>
 </html>

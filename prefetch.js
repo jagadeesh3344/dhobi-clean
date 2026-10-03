@@ -120,22 +120,31 @@
   function initMobileMenu() {
     const btn = document.getElementById('mobile-menu-btn');
     const drawer = document.getElementById('mobile-nav-drawer');
-    if (!btn || !drawer) return;
+    const closeBtn = document.getElementById('mobile-nav-close');
+    if (!drawer) return;
 
     window.closeMobileMenu = function() {
       drawer.classList.remove('open');
-      btn.classList.remove('active');
-      btn.setAttribute('aria-expanded', 'false');
+      if (btn) {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-expanded', 'false');
+      }
       drawer.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      document.body.classList.remove('mobile-menu-open');
     };
 
     window.openMobileMenu = function() {
       drawer.classList.add('open');
-      btn.classList.add('active');
-      btn.setAttribute('aria-expanded', 'true');
+      if (btn) {
+        btn.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+      }
       drawer.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+      document.body.classList.add('mobile-menu-open');
     };
 
     window.toggleMobileMenu = function() {
@@ -146,17 +155,19 @@
       }
     };
 
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      window.toggleMobileMenu();
-    });
+    if (btn) {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        window.toggleMobileMenu();
+      });
+    }
 
-    // Close when clicking the semi-transparent backdrop
-    drawer.addEventListener('click', (e) => {
-      if (!e.target.closest('.mobile-nav-inner')) {
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
         window.closeMobileMenu();
-      }
-    });
+      });
+    }
 
     // Close on Escape key
     document.addEventListener('keydown', (e) => {
@@ -165,7 +176,7 @@
       }
     });
 
-    // Close drawer when any link inside is clicked
+    // Close drawer when any link or action inside is clicked
     drawer.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         window.closeMobileMenu();
@@ -178,6 +189,7 @@
         window.closeMobileMenu();
       }
     }, { passive: true });
+
   }
 
   function onReady() {
