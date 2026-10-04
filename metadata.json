@@ -1,0 +1,8 @@
+{
+  "name": "Dhobiclean - Effortless Laundry Care to Simplify Life",
+  "description": "Professional laundry and dry cleaning services delivered straight to your doorstep. Schedule a pickup today and enjoy fresh clothes.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
