@@ -66,12 +66,13 @@
   }
 
   function initPrefetch() {
-    const pages = ['index.html', 'about.html', 'services.html', 'blog.html', 'contact.html'];
+    const pages = ['/', '/about', '/services', '/blog', '/contact'];
     
     // Instantly warm up all core pages after initial load
     setTimeout(() => {
+      const currentPath = window.location.pathname;
       pages.forEach(page => {
-        if (!window.location.pathname.endsWith(page)) {
+        if (currentPath !== page && !(page === '/' && (currentPath === '/index.html' || currentPath === '/index'))) {
           prefetch(page);
         }
       });
@@ -79,6 +80,7 @@
 
     // Add pointerdown / touchstart / mouseenter listeners for instant response
     document.addEventListener('pointerdown', (e) => {
+      if (!e.target || typeof e.target.closest !== 'function') return;
       const link = e.target.closest('a[href]');
       if (!link) return;
       const href = link.getAttribute('href');
@@ -88,6 +90,7 @@
     }, { passive: true });
 
     document.addEventListener('mouseenter', (e) => {
+      if (!e.target || typeof e.target.closest !== 'function') return;
       const link = e.target.closest('a[href]');
       if (!link) return;
       const href = link.getAttribute('href');
@@ -98,6 +101,7 @@
 
     // Instant click visual progress response
     document.addEventListener('click', (e) => {
+      if (!e.target || typeof e.target.closest !== 'function') return;
       const link = e.target.closest('a[href]');
       if (!link) return;
 

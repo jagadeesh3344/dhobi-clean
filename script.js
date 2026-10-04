@@ -192,6 +192,11 @@ function handleBookingSubmit(event) {
     }
   }
 
+  if (selectedItems.length === 0) {
+    showToast('⚠️ Please select at least one service and quantity for pickup!');
+    return;
+  }
+
   // Store order persistently in localStorage for Admin Panel
   const orderId = `#DHB-${Math.floor(100000 + Math.random() * 900000)}`;
   const newOrder = {
@@ -369,7 +374,7 @@ function handle7MClick() {
     // Always clear session token so tapping 4 times MUST ask for admin credentials
     sessionStorage.removeItem('dhobi_admin_auth');
     setTimeout(() => {
-      window.location.href = 'admin.html';
+      window.location.href = '/admin';
     }, 200);
   }
 }
@@ -386,7 +391,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const sections = document.querySelectorAll('main section');
   const navLinks = document.querySelectorAll('.nav-link');
-  const homeLink = document.querySelector('.nav-link[href="index.html"]');
+  const homeLink = document.querySelector('.nav-link[href="/"]');
 
   // Attach 4-click trigger to 7M+ Happy Customers card & logo
   const stat7mCard = document.querySelector('.stat-card');
